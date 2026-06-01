@@ -1,4 +1,4 @@
-﻿# ANTIGRAVITY
+# ANTIGRAVITY
 
 นี่คือไฟล์ระบบที่บันทึกความเข้าใจของ **Antigravity (AI Coding Assistant)** เกี่ยวกับโครงสร้างและกลไกทั้งหมดของระบบ Second Brain (Zettelkasten) ใน Obsidian Vault นี้ เพื่อใช้เป็นหน่วยความจำถาวรสำหรับการประสานงานและจัดระบบร่วมกับคุณ
 
@@ -68,7 +68,7 @@
 ---
 
 ## 5. บันทึกประวัติการปรับปรุงระบบ (System Changelog)
-- **2026-06-01 (อัปเดตระบบ YouTube Multi-Agent Pipeline & ออปชั่นสรุปเฉพาะ SOURCE):**
+- **2026-06-01 (รอบแรก - อัปเดตระบบ YouTube Multi-Agent Pipeline & ออปชั่นสรุปเฉพาะ SOURCE):**
   - อัปเกรดสคริปต์ `run-distiller.ps1` ให้ทำหน้าที่เป็น Entry Router ตรวจจับ YouTube Link ด้วย Regex และเปลี่ยนปลายทางกระบวนการอัตโนมัติ
   - สร้างสคริปต์ถอดคำบรรยายด่วน `get_youtube_transcript.py` รองรับ API เวอร์ชันล่าสุดของ `youtube-transcript-api` (v1.2.4)
   - พัฒนากลไกการวิเคราะห์แบบทีมขัดแย้งเชิงวิพากษ์ (Summarizer + Contrarian + Verifier) ภายใต้ `YouTubeManager`
@@ -79,3 +79,8 @@
   - **[การสร้างเอกสารโครงการ]** เขียนคู่มือหลักภาษาอังกฤษและสเปกโปรเจกต์ `README.md` ที่รูทอย่างสวยงามเพื่อให้พร้อมสำหรับ GitHub
   - **[มาตรฐานสำหรับมือถือ]** กำหนดแนวทางการแสดงผล Contrarian Analysis ผ่าน **Obsidian Callouts** (`> [!WARNING]`) ในคู่มือข้อที่ 3 เพื่อให้สามารถเปิดอ่านโน้ตความรู้บนแอป Obsidian Mobile ทั้งบน iOS และ Android ได้อย่างสวยงาม สบายตา ไร้อคติ โดยไม่ต้องพึ่งพาเบราว์เซอร์ภายนอก
   - **[ฟีเจอร์ซิงก์ไฟล์ Word]** พัฒนาและติดตั้งระบบ **Word-to-Obsidian Sync Engine** (`run-word-sync.ps1` + `.agents/WordSync/`) เพื่อช่วยให้ผู้ใช้เรียนไปจดไปผ่าน Word พร้อมแนบรูปภาพ และสั่งกวาดซิงก์อัปเดตลงคลัง Obsidian `02_SOURCE/WORK_KNOWLEDGE/` แบบตรวจจับความเปลี่ยนแปลงอัตโนมัติ (State DB) และกวาดล้าง Inbox อัตโนมัติเมื่อทำเสร็จ
+- **2026-06-01 (รอบสอง - แก้ไขบักการดึงรูปภาพใน WordSync & ปัญหา Read-Only Windows Permission):**
+  - **[แก้ไขระบบถอดรูปภาพ DOCX]** แก้ไขบั๊กของสคริปต์แปลงไฟล์โดยเปลี่ยนการสแกน `w:drawing` (รูปภาพสมัยใหม่) และ `v:imagedata` (รูปภาพ VML Legacy) จากเดิมค้นหาที่ระดับ Paragraph (`w:p`) ไปเป็นค้นหาแบบเรียกซ้ำ (Recursive) ภายใต้ระดับ Run (`w:r`) ซึ่งเป็นจุดที่โปรแกรม Word นำรูปมาเก็บจริง ผลลัพธ์คือ สามารถดึงรูปภาพแนบทั้งหมด 462 รูป ออกมาเซฟที่โฟลเดอร์ `02_SOURCE/WORK_KNOWLEDGE/attachments/` และเขียนลิงก์ Obsidian Wikilink `![[รูป.png]]` จำนวน 463 ลิงก์ในไฟล์ Markdown ปลายทางได้สมบูรณ์แบบ 100%
+  - **[แก้ไข NAMESPACES Bug]** เพิ่มการระบุค่า `NAMESPACES` ในระบบ เพื่อแก้ไขข้อผิดพลาด `NameError: name 'NAMESPACES' is not defined` ของ Python
+  - **[แก้บักลบไฟล์ติดล็อก Windows]** ปรับแต่งกระบวนการทำ Inbox Zero โดยเปลี่ยนจากการเรียก `shutil.rmtree()` เปล่าๆ ไปเป็นการส่ง Callback `onerror=remove_readonly` ร่วมกับ `os.chmod` เพื่อแก้ปัญหาการติดสิทธิ์ลบโฟลเดอร์ย่อยประเภท Read-Only เช่น ไฟล์ `.git/objects/` ซึ่งมักทำให้ระบบล่มบน Windows ปัจจุบันซิงก์และลบไฟล์ Inbox ลุล่วงเรียบร้อย
+  - **[คลีนโครงการ]** ลบไฟล์ทรานซิชันทดสอบ `.agents/WordSync/test_single_sync.py` เพื่อให้คลังเก็บโค้ดตัวแทนเป็นระเบียบเรียบร้อย และทำการ Git Commit และ Push ขึ้น GitHub เรียบร้อย
