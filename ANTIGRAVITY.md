@@ -22,9 +22,9 @@
 
 | โฟลเดอร์ / ตำแหน่ง | หน้าที่ | สถานะปัจจุบัน / รายชื่อไฟล์ |
 | :--- | :--- | :--- |
-| **`Root`** | รูทของโปรเจกต์ประกอบด้วยสคริปต์หลักและคู่มือระบบ | - `ANTIGRAVITY.md` (คู่มือความเข้าใจระบบ AI)<br>- `README.md` (คู่มือแนะนำระบบสำหรับ GitHub)<br>- `run-architect.ps1`<br>- `run-distiller.ps1`<br>- `.gitignore` |
+| **`Root`** | รูทของโปรเจกต์ประกอบด้วยสคริปต์หลักและคู่มือระบบ | - `ANTIGRAVITY.md` (คู่มือความเข้าใจระบบ AI)<br>- `README.md` (คู่มือแนะนำระบบสำหรับ GitHub)<br>- `run-architect.ps1`<br>- `run-distiller.ps1`<br>- `run-word-sync.ps1` (สคริปต์ซิงก์อัปเดตไฟล์ Word)<br>- `.gitignore` |
 | **`01_INBOX`** | จุดพักข้อมูลดิบชั่วคราว ต้องเคลียร์เป็นศูนย์เสมอ | - `inbox_feyman.md` (Raw)<br>- `วิธีสรุปหนังสือ.md` (Raw) |
-| **`02_SOURCE`** | สรุปภาพรวมและแก่นความคิดจากแหล่งข้อมูลภายนอก | - `สรุป The Almanack of Naval Ravikant.md` |
+| **`02_SOURCE`** | สรุปภาพรวมและแก่นความคิดจากแหล่งข้อมูลภายนอก | - `สรุป The Almanack of Naval Ravikant.md`<br>- `WORK_KNOWLEDGE/` (โฟลเดอร์ย่อยเก็บวิชาความรู้จากการเรียน)<br>- `WORK_KNOWLEDGE/attachments/` (รูปภาพแนบจาก Word) |
 | **`03_ZETTEL`** | คลังเก็บ "Atomic Notes" (1 ไอเดียต่อ 1 โน้ต) | - `Permissionless Leverage.md`<br>- `Rapid Skill Acquisition.md`<br>- `Specific Knowledge.md`<br>- `Wealth is Assets Not Money.md` |
 | **`04_MOC`** | สารบัญเชื่อมโยงแนวคิดข้ามสายตาม Theme หลัก (Map of Content) | *ว่าง (รอเริ่มสร้าง)* |
 | **`05_OUTPUT`** | ผลงานฉบับร่างที่สมบูรณ์พร้อมใช้จริง | - `Writing` (โฟลเดอร์ย่อย) |
@@ -49,7 +49,7 @@
 
 ---
 
-## 4. แสนงานการสั่งการของผู้ช่วย AI (Agent Commands & CLI Integration)
+## 4. แผนงานการสั่งการของผู้ช่วย AI (Agent Commands & CLI Integration)
 ระบบนี้ทำงานร่วมกับบทบาทเฉพาะทางของ AI ในโฟลเดอร์ `.agents/` ผ่านการเรียกใช้ `agy` CLI ในสคริปต์ PowerShell:
 
 * **The Distiller ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/Distiller/instruction.md)):** สกัดไฟล์ข้อความปกติใน `01_INBOX` ลงมาสู่ `02_SOURCE` หรือ `03_ZETTEL` (สามารถเลือกเขียนเฉพาะไฟล์สรุปภาพรวมใน `02_SOURCE` อย่างเดียวได้)
@@ -57,6 +57,11 @@
   * ระบบจำลอง Multi-Agent Consensus ย่อยในการถอดความและวิเคราะห์คลิปวิดีโอจาก YouTube อัตโนมัติ (ถอด Transcript ผ่านสคริปต์ Python)
   * ประสานงานระหว่าง **Summarizer (สรุปแก่น)**, **Contrarian (คิดค้าน/หา Bias/Trade-off)** และ **Verifier (สแกน Fact vs Noise)**
   * รวมผลลัพธ์รอบด้านเข้าสู่ `02_SOURCE` (สรุปรวม) และ `03_ZETTEL` (ย่อยรายประเด็น) โดยสามารถเลือกสรุปลง `02_SOURCE` เฉพาะอย่างเดียวเพื่อติดตามข่าวสารโดยไม่แตก Zettel ได้
+* **The Word Ingestion Sync Engine:** 
+  * แปลงและนำเข้าสคริปต์ความรู้จากการเรียนเรียน (.docx) ในโฟลเดอร์ `01_INBOX/WORK_KNOWLEDGE/` ที่คุณก๊อปปี้มาวาง
+  * สแกนกวาดซับโฟลเดอร์ย่อยทั้งหมด (Recursive) และสร้างโครงสร้างแบบ 1:1 ปลายทางที่ `02_SOURCE/WORK_KNOWLEDGE/`
+  * ถอดแกะรูปภาพแนบออกมาเซฟที่โฟลเดอร์ `02_SOURCE/WORK_KNOWLEDGE/attachments/` และเขียนลิงก์ Obsidian Wikilink `![[ชื่อไฟล์-img1.png]]` ลงในเอกสารให้อย่างเป็นระเบียบ
+  * ใช้กลไก State Database ในการเปรียบเทียบเวลาแก้ไขและค่า MD5 Hash เพื่อประมวลผลเฉพาะไฟล์ใหม่หรือไฟล์เก่าที่มีการแก้ไขเพิ่มเติมเท่านั้น และทำการล้างเคลียร์ Inbox เป็นศูนย์อัตโนมัติเมื่อซิงก์สำเร็จลุล่วง
 * **The Architect ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/Architect/instruction.md)):** คลัสเตอร์โน้ตใน Zettel เพื่อจัดกลุ่มเชื่อมโยงออกมาเป็นแผนผังความคิดใน MOC
 * **The Builder ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/Builder/instruction.md)):** สังเคราะห์วัตถุดิบและเขียนร่างชิ้นงานฉบับสมบูรณ์ใน `05_OUTPUT`
 
@@ -73,3 +78,4 @@
   - **[การจัดตั้ง Git & GitHub]** เริ่มต้นระบบควบคุมเวอร์ชัน (Local Git) พร้อมเขียนไฟล์ `.gitignore` คลุมข้อมูลส่วนบุคคล/ไฟล์ขยะ และเชื่อมโยงส่งออก Backup ขึ้นไปคลาวด์ GitHub (`https://github.com/Nopparuth-Ju/my-second-brain-sync.git`) ได้สำเร็จเรียบร้อย
   - **[การสร้างเอกสารโครงการ]** เขียนคู่มือหลักภาษาอังกฤษและสเปกโปรเจกต์ `README.md` ที่รูทอย่างสวยงามเพื่อให้พร้อมสำหรับ GitHub
   - **[มาตรฐานสำหรับมือถือ]** กำหนดแนวทางการแสดงผล Contrarian Analysis ผ่าน **Obsidian Callouts** (`> [!WARNING]`) ในคู่มือข้อที่ 3 เพื่อให้สามารถเปิดอ่านโน้ตความรู้บนแอป Obsidian Mobile ทั้งบน iOS และ Android ได้อย่างสวยงาม สบายตา ไร้อคติ โดยไม่ต้องพึ่งพาเบราว์เซอร์ภายนอก
+  - **[ฟีเจอร์ซิงก์ไฟล์ Word]** พัฒนาและติดตั้งระบบ **Word-to-Obsidian Sync Engine** (`run-word-sync.ps1` + `.agents/WordSync/`) เพื่อช่วยให้ผู้ใช้เรียนไปจดไปผ่าน Word พร้อมแนบรูปภาพ และสั่งกวาดซิงก์อัปเดตลงคลัง Obsidian `02_SOURCE/WORK_KNOWLEDGE/` แบบตรวจจับความเปลี่ยนแปลงอัตโนมัติ (State DB) และกวาดล้าง Inbox อัตโนมัติเมื่อทำเสร็จ
