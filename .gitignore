@@ -11,3 +11,13 @@
 # System Files
 Thumbs.db
 .DS_Store
+
+# Personal Second Brain Contents (Keep Private, ignore from GitHub)
+01_INBOX/
+02_SOURCE/
+03_ZETTEL/
+04_MOC/
+05_OUTPUT/
+SECOND_BRAIN_PRINCIPLE/
+reader-app/
+.agents/word_sync_state.json
