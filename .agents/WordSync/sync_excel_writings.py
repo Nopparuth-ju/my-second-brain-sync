@@ -118,83 +118,6 @@ def read_sheet_with_propagation(sheet):
         
     return headers, data_rows
 
-def update_moc_file(vault_root, generated_episodes):
-    """
-    Updates the 04_MOC/Daily Writing MOC.md with a dedicated section for main writing series.
-    """
-    moc_path = os.path.join(vault_root, "04_MOC", "Daily Writing MOC.md")
-    if not os.path.exists(moc_path):
-        print(f"   ⚠️ Daily Writing MOC not found at {moc_path}. Skipping MOC update.")
-        return
-        
-    try:
-        with open(moc_path, "r", encoding="utf-8-sig") as f:
-            content = f.read()
-    except Exception:
-        with open(moc_path, "r", encoding="utf-8") as f:
-            content = f.read()
-            
-    # Group generated episodes by series
-    series_groups = {}
-    for ep in generated_episodes:
-        s_name = ep['series_name']
-        if s_name not in series_groups:
-            series_groups[s_name] = []
-        series_groups[s_name].append(ep)
-        
-    # Sort episodes within each series by episode number
-    for s_name in series_groups:
-        series_groups[s_name].sort(key=lambda x: x['ep_num'])
-        
-    # Construct the new section
-    new_section_lines = []
-    new_section_lines.append("### 📚 หมวดที่ 6: งานเขียนเผยแพร่ชุดหลัก (Featured Writing Series & Blog Posts)")
-    
-    # Sub-descriptions for display
-    series_descriptions = {
-        "The Brittle Veneer": "เงาบางๆ ของหัวใจสะท้อนสัจธรรม",
-        "ใช้ชีวิตง่ายๆ ด้วยการรู้กฎแค่ 2 ข้อ": "กฎเหล็กแห่งความเรียบง่าย",
-        "Walk to Wake": "ก้าวเดินเพื่อตื่นรู้"
-    }
-    
-    for s_name in sorted(series_groups.keys()):
-        desc = series_descriptions.get(s_name, "งานเขียนชุดพิเศษ")
-        new_section_lines.append(f"* **{s_name} ({desc})**")
-        for ep in series_groups[s_name]:
-            rel_link = f"05_OUTPUT/Writing/{s_name}/{ep['filename_no_ext']}"
-            new_section_lines.append(f"  * [[{rel_link}|📖 {ep['ep_num_str']} - {ep['episode_title']}]]")
-            
-    new_section_content = "\n".join(new_section_lines)
-    
-    has_section = "### 📚 หมวดที่ 6" in content
-    
-    if has_section:
-        # Regex replacement of the old Section 6
-        pattern = r"### 📚 หมวดที่ 6:.*?(?=\n---\n|\Z)"
-        content_updated = re.sub(pattern, new_section_content, content, flags=re.DOTALL)
-    else:
-        # Insert before the separator '---' preceding the Reflection section
-        idx = content.find("## 🎯 บันทึกเป้าหมายและการประเมินตนเอง")
-        if idx != -1:
-            sep_idx = content.rfind("---", 0, idx)
-            if sep_idx != -1:
-                before_sep = content[:sep_idx]
-                after_sep = content[sep_idx:]
-                content_updated = f"{before_sep.rstrip()}\n\n{new_section_content}\n\n{after_sep}"
-            else:
-                # Fallback: insert before heading
-                before_head = content[:idx]
-                after_head = content[idx:]
-                content_updated = f"{before_head.rstrip()}\n\n{new_section_content}\n\n---\n\n{after_head}"
-        else:
-            # Absolute fallback: append to the end
-            content_updated = content + "\n\n" + new_section_content
-                
-    # Write the updated content back in UTF-8 with BOM format
-    with open(moc_path, "w", encoding="utf-8-sig") as f:
-        f.write(content_updated)
-        
-    print(f"   ✅ Updated MOC: {os.path.basename(moc_path)} with featured series links!")
 
 def sync_writings():
     print("🚀 Starting Featured Writing Series Sync...", flush=True)
@@ -346,9 +269,7 @@ def sync_writings():
         
     print(f"\n🎉 Successfully processed and saved {len(generated_episodes)} stories!")
     
-    # 4. Update the Map of Content (Daily Writing MOC.md)
-    print("\n🔗 Syncing with MOC index...")
-    update_moc_file(VAULT_ROOT, generated_episodes)
+
     
     print("\n✨ Writing sync pipeline finished perfectly!")
 
