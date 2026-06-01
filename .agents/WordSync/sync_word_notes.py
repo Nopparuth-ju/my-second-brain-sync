@@ -1,4 +1,5 @@
 import os
+import sys
 import zipfile
 import xml.etree.ElementTree as ET
 import shutil
@@ -6,18 +7,16 @@ import hashlib
 import json
 import re
 
-# Namespace mapping for Word XML documents
-NAMESPACES = {
-    'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main',
-    'r': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships',
-    'wp': 'http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing',
-    'a': 'http://schemas.openxmlformats.org/drawingml/2006/main',
-    'pic': 'http://schemas.openxmlformats.org/drawingml/2006/picture',
-    'v': 'urn:schemas-microsoft-com:vml'
-}
+# Reconfigure standard output to support UTF-8 (emojis and Thai characters) in Windows console
+if sys.platform.startswith('win'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except AttributeError:
+        pass # Support Python versions without reconfigure
 
-# Directories configuration
-VAULT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Directories configuration - Resides in .agents/WordSync/ so we go 3 levels up to reach Vault Root
+VAULT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 INBOX_DIR = os.path.join(VAULT_ROOT, "01_INBOX", "WORK_KNOWLEDGE")
 TARGET_DIR = os.path.join(VAULT_ROOT, "02_SOURCE", "WORK_KNOWLEDGE")
 ATTACHMENTS_DIR = os.path.join(TARGET_DIR, "attachments")
@@ -70,7 +69,6 @@ def extract_docx_media(docx_path, file_base_name):
             r_target = elem.get('Target')
             
             if "relationships/image" in r_type:
-                # Target is usually 'media/image1.png'
                 rId_to_target[r_id] = r_target.split('/')[-1]
 
         # 2. Extract and rename the images
@@ -101,7 +99,6 @@ def extract_docx_media(docx_path, file_base_name):
 
 def convert_docx_to_md(docx_path, output_md_path, file_base_name):
     """Converts a DOCX file to clean Markdown and links extracted images."""
-    # First extract images
     image_mapping = extract_docx_media(docx_path, file_base_name)
     
     if not zipfile.is_zipfile(docx_path):
@@ -177,7 +174,6 @@ def convert_docx_to_md(docx_path, output_md_path, file_base_name):
             if full_p_text:
                 md_lines.append(f"{prefix}{full_p_text}")
             elif prefix == "- ":
-                # List item might contain drawing only
                 md_lines.append(prefix)
                 
         # Format markdown body cleanly
