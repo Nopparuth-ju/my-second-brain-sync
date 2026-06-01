@@ -1,0 +1,13 @@
+# Antigravity CLI and Agent Temp Files
+.antigravitycli/
+.agents/YouTubeManager/temp_transcript.txt
+
+# Obsidian workspace layout and local cache
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/backups/
+.obsidian/cache/
+
+# System Files
+Thumbs.db
+.DS_Store
