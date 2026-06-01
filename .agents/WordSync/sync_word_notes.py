@@ -284,10 +284,21 @@ def sync_pipeline():
             pass # Ignore failures to delete minor transient files
             
     try:
-        shutil.rmtree(INBOX_DIR, onerror=remove_readonly)
-        print("   - Inbox cleared to Zero successfully.")
+        # Clear contents of WORK_KNOWLEDGE instead of deleting the directory itself
+        for item in os.listdir(INBOX_DIR):
+            item_path = os.path.join(INBOX_DIR, item)
+            if os.path.isdir(item_path):
+                shutil.rmtree(item_path, onerror=remove_readonly)
+            else:
+                try:
+                    import stat
+                    os.chmod(item_path, stat.S_IWRITE)
+                    os.remove(item_path)
+                except Exception:
+                    pass
+        print("   - Inbox cleared to Zero successfully (kept WORK_KNOWLEDGE folder).")
     except Exception as e:
-        print(f"   - Warning: Could not delete inbox copy: {e}")
+        print(f"   - Warning: Could not clear inbox: {e}")
 
 if __name__ == "__main__":
     sync_pipeline()
