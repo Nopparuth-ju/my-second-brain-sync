@@ -26,7 +26,7 @@
 | **`01_INBOX`** | จุดพักข้อมูลดิบชั่วคราว ต้องเคลียร์เป็นศูนย์เสมอ | - `inbox_feyman.md` (Raw)<br>- `วิธีสรุปหนังสือ.md` (Raw) |
 | **`02_SOURCE`** | สรุปภาพรวมและแก่นความคิดจากแหล่งข้อมูลภายนอก | - `สรุป The Almanack of Naval Ravikant.md`<br>- `WORK_KNOWLEDGE/` (โฟลเดอร์ย่อยเก็บวิชาความรู้จากการเรียน)<br>- `WORK_KNOWLEDGE/attachments/` (รูปภาพแนบจาก Word)<br>- `WORK_KNOWLEDGE_SUMMARY/` (แดชบอร์ดสรุปวิชาแยกราย 6 โดเมน) |
 | **`03_ZETTEL`** | คลังเก็บ "Atomic Notes" (1 ไอเดียต่อ 1 โน้ต) | - `Permissionless Leverage.md`<br>- `Rapid Skill Acquisition.md`<br>- `Specific Knowledge.md`<br>- `Wealth is Assets Not Money.md` |
-| **`04_MOC`** | สารบัญเชื่อมโยงแนวคิดข้ามสายตาม Theme หลัก (Map of Content) | *ว่าง (รอเริ่มสร้าง)* |
+| **`04_MOC`** | สารบัญเชื่อมโยงแนวคิดข้ามสายตาม Theme หลัก (Map of Content) | - `Daily Writing MOC.md` (รวบรวมงานเขียนฝึกฝนรายวัน)<br>- `Featured Writing MOC.md` (พอร์ตโฟลิโอศูนย์กลางเชื่อมโยงงานซีรีส์บทความเขียนเผยแพร่หลัก) |
 | **`05_OUTPUT`** | ผลงานฉบับร่างที่สมบูรณ์พร้อมใช้จริง | - `Writing` (โฟลเดอร์ย่อย) |
 | **`SECOND_BRAIN_PRINCIPLE`** | คลังคู่มือหลักการจัดหมวดหมู่และกลไกความรู้ | - `Domain & Concept obsidian.md`<br>- `My Idea.md`<br>- `Overview Domain Knowledge.md`<br>- `The Optimal Problem-Solving Framework.md` |
 
@@ -62,6 +62,10 @@
   * สแกนกวาดซับโฟลเดอร์ย่อยทั้งหมด (Recursive) และสร้างโครงสร้างแบบ 1:1 ปลายทางที่ `02_SOURCE/WORK_KNOWLEDGE/`
   * ถอดแกะรูปภาพแนบออกมาเซฟที่โฟลเดอร์ `02_SOURCE/WORK_KNOWLEDGE/attachments/` และเขียนลิงก์ Obsidian Wikilink `![[ชื่อไฟล์-img1.png]]` ลงในเอกสารให้อย่างเป็นระเบียบ
   * ใช้กลไก State Database ในการเปรียบเทียบเวลาแก้ไขและค่า MD5 Hash เพื่อประมวลผลเฉพาะไฟล์ใหม่หรือไฟล์เก่าที่มีการแก้ไขเพิ่มเติมเท่านั้น และทำการล้างเคลียร์ Inbox เป็นศูนย์อัตโนมัติเมื่อซิงก์สำเร็จลุล่วง
+* **The Excel Writing List Sync Engine:**
+  * แปลงและจัดเรียงสคริปต์งานเขียนหลักและบทความซีรีส์จาก Excel database (`D:\Boss\3) Hobby\3.14) Writing\Writing List.xlsx`) ประสานข้อมูลจากชีต `Publish Detail`, `Excerpt`, และ `Midgrad` ลงคลังอัตโนมัติ
+  * จัดกลุ่มแยกตอนและสกัดประเภท/แท็กโดเมนอย่างไดนามิก วางปลายทางเป็นหมวดซีรีส์ใต้ `05_OUTPUT/Writing/`
+  * ปรับปรุงหน้าแผนผังพอร์ตโฟลิโอ [Featured Writing MOC.md](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/04_MOC/Featured%20Writing%20MOC.md) อัตโนมัติในทุกครั้งที่รัน เพื่อจัดโครงสร้างซีรีส์งานเขียนทั้งหมดให้เชื่อมโยงสยายปีกสวยงามใน Graph View
 * **The Architect ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/Architect/instruction.md)):** คลัสเตอร์โน้ตใน Zettel เพื่อจัดกลุ่มเชื่อมโยงออกมาเป็นแผนผังความคิดใน MOC
 * **The Builder ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/Builder/instruction.md)):** สังเคราะห์วัตถุดิบและเขียนร่างชิ้นงานฉบับสมบูรณ์ใน `05_OUTPUT`
 
@@ -93,5 +97,5 @@
   - **[ฟีเจอร์ใหม่]** พัฒนาและติดตั้งระบบ **Excel-to-Obsidian Writing Sync Engine** (`run-writing-sync.ps1` + `.agents/WordSync/sync_excel_writings.py`) ดึงข้อมูลจากไฟล์ `D:\Boss\3) Hobby\3.14) Writing\Writing List.xlsx`
   - **[การจัดเตรียมและจัดรูปเรียงไฟล์]** ดำเนินการกวาดอ่าน 3 แผ่นชีตหลัก (`Publish Detail`, `Excerpt`, `Midgrad`), ทำการผสานข้อมูลข้ามชีตด้วยคีย์ `(No, EP)` และรองรับกรณีชื่อตอนสะกดต่างกันเล็กน้อย (Fuzzy matching/Normalizing), จัดสรรแยกหมวดหมู่เป็นโฟลเดอร์ตามชื่อซีรีส์ พร้อมบันทึกไฟล์เป็นชื่อตอน `EP {Num} - {Title}.md`
   - **[ระบบแท็กและกล่องข้อมูลการเขียน]** แทรกกล่อง Obsidian Callout `> [!NOTE] ข้อมูลการเขียน` รวบรวม Objective, Human Desire, และ Excerpt ด้านบนสุด พร้อมจัดทำ frontmatter tags อัตโนมัติ `#type/output #creator/me #status/ready #writing/storytelling #writing/midgrad` รวมถึงโดเมนหลักอย่างไดนามิก (เช่น `#domain/happiness`, `#domain/knowledge`)
-  - **[อัปเดตระบบลิงก์ MOC อัตโนมัติ]** เพิ่มระบบอัปเดตดึงหัวซีรีส์และตอนเขียนทั้งหมดที่สร้างใหม่เข้าไปซิงก์เชื่อมโยงใน `04_MOC/Daily Writing MOC.md` โดยอัตโนมัติในส่วนหัวข้อ `### 📚 หมวดที่ 6: งานเขียนเผยแพร่ชุดหลัก` เพื่อจัดระเบียบให้เกิดการโยงใยสวยงามใน Graph View
+  - **[ระบบพอร์ตโฟลิโอ MOC แยกเฉพาะตัว]** พัฒนาและเปิดใช้งานระบบสร้าง/อัปเดตแผนผังรวมผลงานชิ้นเอกอัตโนมัติแยกเฉพาะใน [Featured Writing MOC.md](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/04_MOC/Featured%20Writing%20MOC.md) (ไม่รบกวนหน้าฝึกเขียนรายวัน) เชื่อมต่อซีรีส์ทั้งหมดกระจายออกจากจุดศูนย์กลางพอร์ตโฟลิโอผลงานหลักจุดเดียว เพื่อความสะอาดเป็นระเบียบและเห็นคลัสเตอร์ชัดเจนที่สุดใน Graph View
 
