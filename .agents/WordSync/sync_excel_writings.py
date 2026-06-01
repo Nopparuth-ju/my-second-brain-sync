@@ -118,6 +118,86 @@ def read_sheet_with_propagation(sheet):
         
     return headers, data_rows
 
+def generate_featured_moc_file(vault_root, generated_episodes):
+    """
+    Generates or updates 04_MOC/Featured Writing MOC.md as a premium hub
+    for all major writing series, keeping them separate from daily practice.
+    """
+    moc_path = os.path.join(vault_root, "04_MOC", "Featured Writing MOC.md")
+    
+    # Group generated episodes by series
+    series_groups = {}
+    for ep in generated_episodes:
+        s_name = ep['series_name']
+        if s_name not in series_groups:
+            series_groups[s_name] = []
+        series_groups[s_name].append(ep)
+        
+    # Sort episodes within each series by episode number
+    for s_name in series_groups:
+        series_groups[s_name].sort(key=lambda x: x['ep_num'])
+        
+    # Construct the MOC content
+    doc_lines = []
+    doc_lines.append("#type/moc")
+    doc_lines.append("#status/processed")
+    doc_lines.append("#domain/writing")
+    doc_lines.append("#creator/me")
+    doc_lines.append("")
+    doc_lines.append("# 📚 Featured Writing MOC (ศูนย์รวมผลงานเขียนหลักและซีรีส์เผยแพร่)")
+    doc_lines.append("")
+    doc_lines.append("> [!NOTE] Map of Content: แผนผังพอร์ตโฟลิโอผลงานเขียนชิ้นเอก")
+    doc_lines.append("> - 🎯 **วัตถุประสงค์:** โน้ตแผ่นนี้ทำหน้าที่เป็น **\"จุดแกนกลาง\" (Hub)** รวบรวมงานเขียนชุดหลักและซีรีส์นิยาย/บทความที่คุณนำไปเผยแพร่หรือแชร์บนช่องทางต่างๆ (เช่น Midgrad) เพื่อให้แยกส่วนกับงานฝึกหัดเขียนรายวัน และทำให้ใน **Graph View** เกิดคลัสเตอร์โยงใยสวยงามของซีรีส์แต่ละตอนแยกออกมาเป็นพอร์ตโฟลิโอดั่งดวงดาวรอบๆ แกนกลางนี้!")
+    doc_lines.append("")
+    doc_lines.append("---")
+    doc_lines.append("")
+    doc_lines.append("## 🌟 ซีรีส์ผลงานเขียนทั้งหมด (Featured Writing Portfolio)")
+    doc_lines.append("")
+    doc_lines.append("นี่คือสารบัญชุดซีรีส์ผลงานชิ้นเอกของคุณที่สร้างขึ้นและเรียบเรียงใน `05_OUTPUT/Writing/` สามารถคลิกเปิดเพื่อเข้าถึงสารบัญย่อยหรืออ่านแต่ละตอนได้ทันที:")
+    doc_lines.append("")
+    
+    # Descriptions map for each series
+    series_descriptions = {
+        "The Brittle Veneer": "นิยายธรรมะเชิงจิตวิทยาที่ผสานสัจธรรมผ่านมุมมองผู้คนและปีศาจในตัวตน",
+        "ใช้ชีวิตง่ายๆ ด้วยการรู้กฎแค่ 2 ข้อ": "บทความพัฒนาตนเอง ปลดปล่อยความคิดผ่านสัจธรรมและการค้นหา Core Value",
+        "Walk to Wake": "เรื่องเล่าผ่อนคลายจิตใจเชิงธรรมชาติบำบัด เพื่อตื่นรู้และอยู่กับปัจจุบันขณะ"
+    }
+    
+    # Dynamic icons map
+    series_icons = {
+        "The Brittle Veneer": "🎭",
+        "ใช้ชีวิตง่ายๆ ด้วยการรู้กฎแค่ 2 ข้อ": "💡",
+        "Walk to Wake": "🚶‍♂️"
+    }
+    
+    for s_name in sorted(series_groups.keys()):
+        desc = series_descriptions.get(s_name, "ชุดผลงานเขียนสร้างสรรค์พิเศษของคุณ")
+        icon = series_icons.get(s_name, "✍️")
+        
+        doc_lines.append(f"### {icon} {s_name}")
+        doc_lines.append(f"*{desc}*")
+        
+        for ep in series_groups[s_name]:
+            rel_link = f"05_OUTPUT/Writing/{s_name}/{ep['filename_no_ext']}"
+            doc_lines.append(f"* [[{rel_link}|📖 {ep['ep_num_str']} - {ep['episode_title']}]]")
+        doc_lines.append("")
+        
+    doc_lines.append("---")
+    doc_lines.append("")
+    doc_lines.append("## 🎯 สรุปผลลัพธ์และความคิดสร้างสรรค์ (Portfolio Reflections)")
+    doc_lines.append("> [!TIP] บันทึกแนวคิด มุมมอง และเป้าหมายของแต่ละซีรีส์ยาวๆ ได้ตรงนี้ เช่น:")
+    doc_lines.append("> - **ทิศทางการทำซีรีส์ถัดไป:** (เช่น อยากทำแนว Sci-Fi จิตวิทยา หรือแนววิชาการสั้นแต่อ่านสนุกเพิ่มขึ้น)")
+    doc_lines.append("> - **ช่องทางการแชร์/ฟีดแบ็ก:** (เช่น สถิติคนอ่านจาก Midgrad หรือกระแสการตอบรับที่เป็นประโยชน์เพื่อนำมาเกลาโครงเรื่องถัดไป)")
+    doc_lines.append("")
+    
+    doc_content = "\n".join(doc_lines)
+    
+    # Write MOC file in UTF-8 with BOM format!
+    os.makedirs(os.path.dirname(moc_path), exist_ok=True)
+    with open(moc_path, "w", encoding="utf-8-sig") as f:
+        f.write(doc_content)
+        
+    print(f"   ✅ Successfully created/updated: 04_MOC/{os.path.basename(moc_path)}")
 
 def sync_writings():
     print("🚀 Starting Featured Writing Series Sync...", flush=True)
@@ -269,7 +349,9 @@ def sync_writings():
         
     print(f"\n🎉 Successfully processed and saved {len(generated_episodes)} stories!")
     
-
+    # 4. Generate/Update Featured Writing MOC
+    print("\n🔗 Syncing with Featured Writing MOC...")
+    generate_featured_moc_file(VAULT_ROOT, generated_episodes)
     
     print("\n✨ Writing sync pipeline finished perfectly!")
 
