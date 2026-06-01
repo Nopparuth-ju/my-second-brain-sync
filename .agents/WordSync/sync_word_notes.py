@@ -22,6 +22,16 @@ TARGET_DIR = os.path.join(VAULT_ROOT, "02_SOURCE", "WORK_KNOWLEDGE")
 ATTACHMENTS_DIR = os.path.join(TARGET_DIR, "attachments")
 STATE_FILE = os.path.join(VAULT_ROOT, ".agents", "word_sync_state.json")
 
+# Namespace mapping for Word XML documents
+NAMESPACES = {
+    'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main',
+    'r': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships',
+    'wp': 'http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing',
+    'a': 'http://schemas.openxmlformats.org/drawingml/2006/main',
+    'pic': 'http://schemas.openxmlformats.org/drawingml/2006/picture',
+    'v': 'urn:schemas-microsoft-com:vml'
+}
+
 def get_md5(file_path):
     """Calculate MD5 hash of a file."""
     hash_md5 = hashlib.md5()
@@ -137,7 +147,7 @@ def convert_docx_to_md(docx_path, output_md_path, file_base_name):
             
             # Process all text runs inside paragraph
             for child in paragraph:
-                # Standard text runs
+                # Runs contain both text and drawings/images
                 if child.tag == '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}r':
                     text_elem = child.find('w:t', NAMESPACES)
                     if text_elem is not None and text_elem.text:
@@ -155,17 +165,18 @@ def convert_docx_to_md(docx_path, output_md_path, file_base_name):
                             elif is_italic:
                                 text = f"*{text}*"
                         p_text_parts.append(text)
-                
-                # Drawing runs (Images)
-                elif child.tag == '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}drawing' or child.find('.//w:drawing', NAMESPACES) is not None:
-                    # Look for relationship embeds in drawings recursively
-                    for blip in child.findall('.//a:blip', NAMESPACES):
-                        embed_id = blip.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}embed')
-                        if embed_id and embed_id in image_mapping:
-                            p_text_parts.append(f"\n\n![[{image_mapping[embed_id]}]]\n\n")
-                            
-                    # VML legacy shapes/images
-                    for img_data in child.findall('.//v:imagedata', NAMESPACES):
+                    
+                    # 1. Search for drawings nested INSIDE the run recursively!
+                    drawings = child.findall('.//w:drawing', NAMESPACES)
+                    for drawing in drawings:
+                        for blip in drawing.findall('.//a:blip', NAMESPACES):
+                            embed_id = blip.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}embed')
+                            if embed_id and embed_id in image_mapping:
+                                p_text_parts.append(f"\n\n![[{image_mapping[embed_id]}]]\n\n")
+                                
+                    # 2. Search for VML legacy images nested INSIDE the run recursively!
+                    vml_images = child.findall('.//v:imagedata', NAMESPACES)
+                    for img_data in vml_images:
                         r_id = img_data.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id')
                         if r_id and r_id in image_mapping:
                             p_text_parts.append(f"\n\n![[{image_mapping[r_id]}]]\n\n")
@@ -254,8 +265,17 @@ def sync_pipeline():
     
     # Clean up 01_INBOX/WORK_KNOWLEDGE directory (Inbox Zero!)
     print("\n🧹 Cleaning up inbox landing pad...", flush=True)
+    
+    def remove_readonly(func, path, excinfo):
+        import stat
+        try:
+            os.chmod(path, stat.S_IWRITE)
+            func(path)
+        except Exception:
+            pass # Ignore failures to delete minor transient files
+            
     try:
-        shutil.rmtree(INBOX_DIR)
+        shutil.rmtree(INBOX_DIR, onerror=remove_readonly)
         print("   - Inbox cleared to Zero successfully.")
     except Exception as e:
         print(f"   - Warning: Could not delete inbox copy: {e}")
