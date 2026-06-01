@@ -90,15 +90,24 @@ def extract_docx_media(docx_path, file_base_name):
             try:
                 img_data = z.read(zip_image_path)
                 
-                # Formulate safe unique name: [FileName]-img[Counter].[ext]
-                ext = media_name.split('.')[-1] if '.' in media_name else 'png'
                 # Clean up filename for security and formatting
                 safe_name = re.sub(r'[\s/\\?%*:|"<>#]', '_', file_base_name)
-                new_image_name = f"{safe_name}-img{img_counter}.{ext}"
-                target_image_path = os.path.join(ATTACHMENTS_DIR, new_image_name)
                 
-                with open(target_image_path, "wb") as img_file:
-                    img_file.write(img_data)
+                # Attempt to convert to highly compressed WebP format using Pillow
+                try:
+                    from PIL import Image
+                    import io
+                    img = Image.open(io.BytesIO(img_data))
+                    new_image_name = f"{safe_name}-img{img_counter}.webp"
+                    target_image_path = os.path.join(ATTACHMENTS_DIR, new_image_name)
+                    img.save(target_image_path, "WEBP", quality=80)
+                except Exception as e:
+                    # Fallback to saving original format if conversion fails
+                    ext = media_name.split('.')[-1] if '.' in media_name else 'png'
+                    new_image_name = f"{safe_name}-img{img_counter}.{ext}"
+                    target_image_path = os.path.join(ATTACHMENTS_DIR, new_image_name)
+                    with open(target_image_path, "wb") as img_file:
+                        img_file.write(img_data)
                 
                 image_mapping[r_id] = new_image_name
                 img_counter += 1
