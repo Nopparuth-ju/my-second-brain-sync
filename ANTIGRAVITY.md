@@ -1,4 +1,4 @@
-# ANTIGRAVITY
+﻿# ANTIGRAVITY
 
 นี่คือไฟล์ระบบที่บันทึกความเข้าใจของ **Antigravity (AI Coding Assistant)** เกี่ยวกับโครงสร้างและกลไกทั้งหมดของระบบ Second Brain (Zettelkasten) ใน Obsidian Vault นี้ เพื่อใช้เป็นหน่วยความจำถาวรสำหรับการประสานงานและจัดระบบร่วมกับคุณ
 
@@ -20,8 +20,9 @@
 
 ## 2. โครงสร้างการไหลของข้อมูล (The Idea Pipeline)
 
-| โฟลเดอร์ | หน้าที่ | สถานะปัจจุบัน / รายชื่อไฟล์ |
+| โฟลเดอร์ / ตำแหน่ง | หน้าที่ | สถานะปัจจุบัน / รายชื่อไฟล์ |
 | :--- | :--- | :--- |
+| **`Root`** | รูทของโปรเจกต์ประกอบด้วยสคริปต์หลักและคู่มือระบบ | - `ANTIGRAVITY.md` (คู่มือความเข้าใจระบบ AI)<br>- `README.md` (คู่มือแนะนำระบบสำหรับ GitHub)<br>- `run-architect.ps1`<br>- `run-distiller.ps1`<br>- `.gitignore` |
 | **`01_INBOX`** | จุดพักข้อมูลดิบชั่วคราว ต้องเคลียร์เป็นศูนย์เสมอ | - `inbox_feyman.md` (Raw)<br>- `วิธีสรุปหนังสือ.md` (Raw) |
 | **`02_SOURCE`** | สรุปภาพรวมและแก่นความคิดจากแหล่งข้อมูลภายนอก | - `สรุป The Almanack of Naval Ravikant.md` |
 | **`03_ZETTEL`** | คลังเก็บ "Atomic Notes" (1 ไอเดียต่อ 1 โน้ต) | - `Permissionless Leverage.md`<br>- `Rapid Skill Acquisition.md`<br>- `Specific Knowledge.md`<br>- `Wealth is Assets Not Money.md` |
@@ -61,3 +62,6 @@
   - พัฒนากลไกการวิเคราะห์แบบทีมขัดแย้งเชิงวิพากษ์ (Summarizer + Contrarian + Verifier) ภายใต้ `YouTubeManager`
   - ทำการทดสอบสมบูรณ์แบบด้วยวิดีโอ *"The first 20 hours"* ของ Josh Kaufman ได้รับไฟล์ Zettel ชื่อ `Rapid Skill Acquisition.md` ในคุณภาพดีเยี่ยม ปราศจากอคติ
   - **[ฟีเจอร์ใหม่]** เพิ่มตัวเลือกที่ 3: **"สรุปลง 02_SOURCE อย่างเดียว"** สำหรับโน้ตปกติและลิงก์ YouTube เพื่อความรวดเร็วในการติดตามเนื้อหาโดยไม่มีการแตก Zettel บวมลงคลัง
+  - **[ปรับแต่งไฟล์ระบบ]** ดำเนินการแปลงสคริปต์ `.ps1` ทั้งหมด (`run-distiller.ps1`, `run-architect.ps1`) รวมถึงไฟล์ระบบ `ANTIGRAVITY.md` และ `README.md` ให้จัดเก็บในรูปแบบ **UTF-8 with BOM** เพื่อให้แสดงภาษาไทยบน PowerShell/Obsidian ได้อย่างสมบูรณ์แบบ ไม่มีตัวอักษรต่างดาว
+  - **[การจัดตั้ง Git & GitHub]** เริ่มต้นระบบควบคุมเวอร์ชัน (Local Git) พร้อมเขียนไฟล์ `.gitignore` คลุมข้อมูลส่วนบุคคล/ไฟล์ขยะ และเชื่อมโยงส่งออก Backup ขึ้นไปคลาวด์ GitHub (`https://github.com/Nopparuth-Ju/my-second-brain-sync.git`) ได้สำเร็จเรียบร้อย
+  - **[การสร้างเอกสารโครงการ]** เขียนคู่มือหลักภาษาอังกฤษและสเปกโปรเจกต์ `README.md` ที่รูทอย่างสวยงามเพื่อให้พร้อมสำหรับ GitHub
