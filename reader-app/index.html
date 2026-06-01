@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Brain Visual Reader</title>
+    <!-- Google Fonts: Outfit (English) & IBM Plex Sans Thai (Thai) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Marked.js for Premium Markdown Parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar Explorer -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fa-solid fa-brain-circuit brain-icon"></i>
+                    <h2>Second Brain <span>Reader</span></h2>
+                </div>
+                <button id="btn-connect" class="btn-primary">
+                    <i class="fa-solid fa-folder-open"></i> เชื่อมต่อ Obsidian Vault
+                </button>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-input" placeholder="ค้นหาโน้ตย่อหรือแท็ก..." disabled>
+            </div>
+
+            <!-- Tags Filter Group -->
+            <div class="tags-filter-section">
+                <h3><i class="fa-solid fa-tags"></i> แท็กยอดนิยม</h3>
+                <div id="tags-cloud" class="tags-cloud">
+                    <span class="no-tags">เชื่อมต่อ Vault เพื่อโหลดแท็ก</span>
+                </div>
+            </div>
+
+            <!-- Files Explorer List -->
+            <div class="explorer-section">
+                <h3><i class="fa-solid fa-compass"></i> สำรวจข้อมูล</h3>
+                <div id="files-list" class="files-list">
+                    <div class="empty-explorer">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <p>กรุณากดปุ่มด้านบนเพื่อเลือกโฟลเดอร์ "My Second Brain Sync"</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Reading & Visualization Area -->
+        <main class="main-content">
+            <!-- Blank Welcome State -->
+            <div id="welcome-state" class="center-state">
+                <i class="fa-solid fa-book-open welcome-icon"></i>
+                <h1>ยินดีต้อนรับสู่ Second Brain Visual Reader</h1>
+                <p>แอปพลิเคชันสำหรับเปลี่ยนเอกสารความรู้ดิบของคุณให้กลายเป็นอินเตอร์เฟสสวยงาม อ่านง่ายรอบด้าน และมีระบบแผนผังความคิด Mind-Map เชื่อมโยงไอเดีย</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h4>ปลอดภัย 100% (Local First)</h4>
+                        <p>รันบนเว็บเบราว์เซอร์ในเครื่องของคุณ ดึงไฟล์ในเครื่องโดยไม่มีการส่งข้อมูลออกนอกระบบอินเทอร์เน็ต</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-glasses"></i>
+                        <h4>อ่านง่าย ไร้ความล้า</h4>
+                        <p>ดีไซน์เป็นมิตรต่อสายตา จัดหน้าย่อหน้าอัตโนมัติ และสกัดส่วนวิเคราะห์โต้แย้ง (Contrarian) ไร้ Bias เป็นบล็อกเด่นชัด</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-diagram-project"></i>
+                        <h4>แผนภาพ Mind-Map</h4>
+                        <p>แปลง Obsidian Wiki Links [[Link]] ให้เป็นแผนผังจุดเชื่อมต่อ (Dynamic Graph Visualizer) เพื่อกระโดดข้ามศาสตร์</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Reader Mode -->
+            <div id="reader-state" class="reader-container hidden">
+                <header class="note-header">
+                    <div class="note-meta-top">
+                        <span id="note-folder-badge" class="folder-badge"><i class="fa-solid fa-folder"></i> 03_ZETTEL</span>
+                        <div id="note-creators" class="creators-group"></div>
+                    </div>
+                    <h1 id="note-title">Specific Knowledge</h1>
+                    <div id="note-tags" class="tags-group"></div>
+                </header>
+
+                <!-- Navigation Tabs -->
+                <div class="tab-navigation">
+                    <button class="tab-btn active" data-tab="tab-reader">
+                        <i class="fa-solid fa-glasses"></i> ตัวอ่านสกัดแก่น (Refined Reader)
+                    </button>
+                    <button class="tab-btn" data-tab="tab-graph">
+                        <i class="fa-solid fa-circle-nodes"></i> แผนที่ความคิดสัมพันธ์ (Mind Graph)
+                    </button>
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="tab-content-container">
+                    <!-- Tab 1: Refined Reader -->
+                    <div id="tab-reader" class="tab-content active-content">
+                        <!-- Custom Contrarian Banner (Inject dynamically if there is Contrarian analysis) -->
+                        <div id="contrarian-highlight" class="contrarian-card hidden">
+                            <div class="card-header">
+                                <i class="fa-solid fa-scale-unbalanced-flip"></i>
+                                <h4>มุมกลับผู้เห็นต่าง & ข้อควรระวัง (Contrarian Analysis & Trade-offs)</h4>
+                            </div>
+                            <div id="contrarian-body" class="card-body"></div>
+                        </div>
+
+                        <!-- Rendered Markdown Body -->
+                        <article id="note-body" class="markdown-body"></article>
+                    </div>
+
+                    <!-- Tab 2: Visual Mind Graph -->
+                    <div id="tab-graph" class="tab-content">
+                        <div class="graph-info">
+                            <p><i class="fa-solid fa-circle-info"></i> แผนภาพด้านล่างแสดงการเชื่อมโยงความรู้ (Wiki Links) ของโน้ตนี้ คุณสามารถคลิกที่วงกลมเพื่อสลับเปิดอ่านโน้ตตัวนั้นได้ทันที</p>
+                        </div>
+                        <div class="canvas-container">
+                            <canvas id="graph-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script Entry -->
+    <script src="app.js"></script>
+</body>
+</html>
