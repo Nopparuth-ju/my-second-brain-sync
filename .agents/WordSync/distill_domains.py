@@ -13,7 +13,7 @@ if sys.platform.startswith('win'):
 # Directories
 VAULT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SOURCE_DIR = os.path.join(VAULT_ROOT, "02_SOURCE", "WORK_KNOWLEDGE")
-SUMMARY_DIR = os.path.join(VAULT_ROOT, "02_SOURCE - WORK_KNOWLEDGE_SUMMARY")
+SUMMARY_DIR = os.path.join(VAULT_ROOT, "02_SOURCE", "WORK_KNOWLEDGE_SUMMARY")
 
 # Domain categorization criteria (maps domain title to list of keyword matches in filepath)
 DOMAINS = {
@@ -170,7 +170,7 @@ def run_distillation():
             domain_files_count[domain_key] += 1
 
     # Write summary files for each domain
-    print("\n✍️ Writing distilled domain summaries to folder 02_SOURCE - WORK_KNOWLEDGE_SUMMARY...", flush=True)
+    print("\n✍️ Writing distilled domain summaries to folder 02_SOURCE/WORK_KNOWLEDGE_SUMMARY...", flush=True)
     
     for key, config in DOMAINS.items():
         summary_file_name = f"{config['title']}.md".replace("/", "-").replace("\\", "-").replace(":", "-").replace("*", "-").replace("?", "-").replace("\"", "-").replace("<", "-").replace(">", "-").replace("|", "-")
