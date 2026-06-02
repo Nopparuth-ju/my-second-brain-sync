@@ -1,4 +1,4 @@
-﻿# ANTIGRAVITY
+# ANTIGRAVITY
 
 นี่คือไฟล์ระบบที่บันทึกความเข้าใจของ **Antigravity (AI Coding Assistant)** เกี่ยวกับโครงสร้างและกลไกทั้งหมดของระบบ Second Brain (Zettelkasten) ใน Obsidian Vault นี้ เพื่อใช้เป็นหน่วยความจำถาวรสำหรับการประสานงานและจัดระบบร่วมกับคุณ
 
@@ -24,7 +24,7 @@
 | :--- | :--- | :--- |
 | **`Root`** | รูทของโปรเจกต์ประกอบด้วยสคริปต์หลักและคู่มือระบบ | - `ANTIGRAVITY.md` (คู่มือความเข้าใจระบบ AI)<br>- `README.md` (คู่มือแนะนำระบบสำหรับ GitHub)<br>- `run-architect.ps1`<br>- `run-distiller.ps1`<br>- `run-intelligence.ps1` (สคริปต์รวบรวมและคัดสรรข่าวความรู้ระดับโลก)<br>- `run-word-sync.ps1` (สคริปต์ซิงก์อัปเดตไฟล์ Word)<br>- `.gitignore` |
 | **`01_INBOX`** | จุดพักข้อมูลดิบชั่วคราว ต้องเคลียร์เป็นศูนย์เสมอ | - `inbox_feyman.md` (Raw)<br>- `วิธีสรุปหนังสือ.md` (Raw) |
-| **`02_SOURCE`** | สรุปภาพรวมและแก่นความคิดจากแหล่งข้อมูลภายนอก | - `สรุป The Almanack of Naval Ravikant.md`<br>- `WORK_KNOWLEDGE/` (โฟลเดอร์ย่อยเก็บวิชาความรู้จากการเรียน)<br>- `WORK_KNOWLEDGE/attachments/` (รูปภาพแนบจาก Word)<br>- `WORK_KNOWLEDGE_SUMMARY/` (แดชบอร์ดสรุปวิชาแยกราย 6 โดเมน)<br>- `CURATED_FEEDS/` (โฟลเดอร์รวบรวมสรุปความรู้ระดับโลกจาก YouTube & RSS Newsletters แยกเป็นระเบียบ) |
+| **`02_SOURCE`** | สรุปภาพรวมและแก่นความคิดจากแหล่งข้อมูลภายนอก | - `สรุป The Almanack of Naval Ravikant.md`<br>- `WORK_KNOWLEDGE/` (โฟลเดอร์ย่อยเก็บวิชาความรู้จากการเรียน)<br>- `WORK_KNOWLEDGE/attachments/` (รูปภาพแนบจาก Word)<br>- `WORK_KNOWLEDGE_SUMMARY/` (แดชบอร์ดสรุปวิชาแยกราย 6 โดเมน)<br>- `CURATED_FEEDS/` (โฟลเดอร์รวบรวมสรุปความรู้ระดับโลกจาก YouTube & RSS Newsletters แยกเก็บเป็นโฟลเดอร์รายวัน YYYY-MM-DD อัตโนมัติ) |
 | **`03_ZETTEL`** | คลังเก็บ "Atomic Notes" (1 ไอเดียต่อ 1 โน้ต) | - `Permissionless Leverage.md`<br>- `Rapid Skill Acquisition.md`<br>- `Specific Knowledge.md`<br>- `Wealth is Assets Not Money.md` |
 | **`04_MOC`** | สารบัญเชื่อมโยงแนวคิดข้ามสายตาม Theme หลัก (Map of Content) | - `Daily Writing MOC.md` (รวบรวมงานเขียนฝึกฝนรายวัน)<br>- `Featured Writing MOC.md` (พอร์ตโฟลิโอศูนย์กลางเชื่อมโยงงานซีรีส์บทความเขียนเผยแพร่หลัก) |
 | **`05_OUTPUT`** | ผลงานฉบับร่างที่สมบูรณ์พร้อมใช้จริง | - `Writing` (โฟลเดอร์ย่อย) |
@@ -57,7 +57,7 @@
   * ระบบจำลอง Multi-Agent Consensus ย่อยในการถอดความและวิเคราะห์คลิปวิดีโอจาก YouTube อัตโนมัติ (ถอด Transcript ผ่านสคริปต์ Python)
   * ประสานงานระหว่าง **Summarizer (สรุปแก่น)**, **Contrarian (คิดค้าน/หา Bias/Trade-off)** และ **Verifier (สแกน Fact vs Noise)**
   * รวมผลลัพธ์รอบด้านเข้าสู่ `02_SOURCE` (สรุปรวม) และ `03_ZETTEL` (ย่อยรายประเด็น) โดยสามารถเลือกสรุปลง `02_SOURCE` เฉพาะอย่างเดียวเพื่อติดตามข่าวสารโดยไม่แตก Zettel ได้
-* **The Personal AI Intelligence Curator (`run-intelligence.ps1`):** สแกนดึงข้อมูลอัตโนมัติจาก YouTube Channel และ RSS Feed ตามลิสต์ระดับโลกใน `intelligence_sources.json` ดาวน์โหลดทรานสคริปต์/บทความดิบ คลีนข้อมูล และส่งให้ Multi-Agent / Distiller แปลงเป็นโน้ตสรุปแก่น Timeless Knowledge คุณภาพสูง ปลายทางแยกไว้เฉพาะที่ `02_SOURCE/CURATED_FEEDS/` โดยเก็บ State การอ่านผ่าน `processed_sources.json` เพื่อป้องกันการรันซ้ำ
+* **The Personal AI Intelligence Curator (`run-intelligence.ps1`):** สแกนดึงข้อมูลอัตโนมัติจาก YouTube Channel และ RSS Feed ตามลิสต์ระดับโลกใน `intelligence_sources.json` ดาวน์โหลดทรานสคริปต์/บทความดิบ คลีนข้อมูล และส่งให้ Multi-Agent / Distiller แปลงเป็นโน้ตสรุปแก่น Timeless Knowledge คุณภาพสูง ปลายทางแยกไว้เฉพาะที่ `02_SOURCE/CURATED_FEEDS/` (โดยจัดหมวดหมู่แยกเก็บรายวันตามโฟลเดอร์ YYYY-MM-DD อัตโนมัติ) โดยเก็บ State การอ่านผ่าน `processed_sources.json` เพื่อป้องกันการรันซ้ำ
 * **The Word Ingestion Sync Engine:** 
   * แปลงและนำเข้าสคริปต์ความรู้จากการเรียนเรียน (.docx) ในโฟลเดอร์ `01_INBOX/WORK_KNOWLEDGE/` ที่คุณก๊อปปี้มาวาง
   * สแกนกวาดซับโฟลเดอร์ย่อยทั้งหมด (Recursive) และสร้างโครงสร้างแบบ 1:1 ปลายทางที่ `02_SOURCE/WORK_KNOWLEDGE/`

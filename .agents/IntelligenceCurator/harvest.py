@@ -180,13 +180,13 @@ def process_youtube_entry(entry):
         "Read the rules and skills from .agents/YouTubeManager/skill.md and .agents/YouTubeManager/instruction.md first. "
         "Also analyze based on the roles of sub-agents in .agents/YouTubeManager/Summarizer.md, .agents/YouTubeManager/Contrarian.md, "
         "and .agents/YouTubeManager/Verifier.md. Then read the video transcript in .agents/YouTubeManager/temp_transcript.txt. "
-        f"Referencing the YouTube link {entry['url']}, process and generate exactly 1 summary note under 02_SOURCE/CURATED_FEEDS/ only "
+        f"Referencing the YouTube link {entry['url']}, process and generate exactly 1 summary note under 02_SOURCE/CURATED_FEEDS/{today_str}/ only "
         f"(do NOT create files in 03_ZETTEL). You MUST fill the 'Analysis Date' template field with '{today_str}' directly under the source link. "
         "Name the summary file beautifully in Thai based on the core thesis of the content."
     )
     
     # Run agy CLI tool
-    res = subprocess.run(["agy", "-p", prompt], capture_output=True, text=True)
+    res = subprocess.run(["agy", "--dangerously-skip-permissions", "-p", prompt], capture_output=True, text=True)
     if res.returncode == 0:
         print("✅ Success: Distilled summary generated and saved directly to 02_SOURCE/CURATED_FEEDS!")
         # Clean up
@@ -224,12 +224,12 @@ def process_rss_entry(entry):
     prompt = (
         "Read the rules and skills from .agents/Distiller/skill.md and .agents/Distiller/instruction.md first. "
         f"Then read the article content stored in .agents/IntelligenceCurator/temp_article.txt referencing URL {entry['url']}. "
-        "Process and extract the core knowledge into exactly 1 summary note under 02_SOURCE/CURATED_FEEDS/ only "
+        f"Process and extract the core knowledge into exactly 1 summary note under 02_SOURCE/CURATED_FEEDS/{today_str}/ only "
         f"(do NOT create files in 03_ZETTEL). You MUST fill the 'Analysis Date' template field with '{today_str}' directly under the source link. "
         "Name the summary file beautifully in Thai based on the core thesis of the content."
     )
     
-    res = subprocess.run(["agy", "-p", prompt], capture_output=True, text=True)
+    res = subprocess.run(["agy", "--dangerously-skip-permissions", "-p", prompt], capture_output=True, text=True)
     if res.returncode == 0:
         print("✅ Success: Distilled summary generated and saved directly to 02_SOURCE/CURATED_FEEDS!")
         # Clean up
@@ -246,8 +246,9 @@ def process_rss_entry(entry):
 def main():
     print("🚀 --- starting Personal AI Intelligence Curator Engine ---")
     
-    # Ensure CURATED_FEEDS directory exists
-    os.makedirs(os.path.join(VAULT_ROOT, "02_SOURCE", "CURATED_FEEDS"), exist_ok=True)
+    # Ensure CURATED_FEEDS directory and today's subfolder exists
+    today_str = datetime.date.today().strftime('%Y-%m-%d')
+    os.makedirs(os.path.join(VAULT_ROOT, "02_SOURCE", "CURATED_FEEDS", today_str), exist_ok=True)
     
     # Load settings and processed state
     config = load_json(SOURCES_CONFIG_PATH)
