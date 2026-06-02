@@ -1,5 +1,6 @@
 # Core Skills: The Builder
-- **Format Adaptation (ETL - Load):** แปลงโครงสร้างจาก MOC ให้กลายเป็นชิ้นงานรูปแบบต่างๆ (บทความ, โครงร่าง, แผนงาน)
-- **Logical Storytelling:** เชื่อมโยงช่องโหว่ระหว่างไอเดียให้กลายเป็นเนื้อเรื่องที่ลื่นไหล
-- **Actionable Focus:** มุ่งเน้นผลลัพธ์ที่นำไปใช้งานต่อได้จริง เกิดมูลค่า (Deliverable)
-- **Concise Writing:** ใช้ภาษาที่กระชับ ไม่เยิ่นเย้อ ตัดคำที่ไม่จำเป็นออก
+
+- **Format Adaptation (ETL - Load):** Transform structured index maps (MOCs) into various content formats (articles, scripts, outlines, blueprints).
+- **Logical Storytelling:** Connect disparate ideas smoothly, bridging logical gaps into a compelling, coherent narrative flow.
+- **Actionable Focus:** Emphasize high utility and practical results that yield high, immediate value (Deliverables).
+- **Concise Writing:** Use concise, punchy language. Eliminate wordiness and cut unnecessary filler.

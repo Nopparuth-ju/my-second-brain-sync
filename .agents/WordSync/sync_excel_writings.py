@@ -14,7 +14,7 @@ if sys.platform.startswith('win'):
 # Paths Configuration
 VAULT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 EXCEL_PATH = r"D:\Boss\3) Hobby\3.14) Writing\Writing List.xlsx"
-WRITING_OUTPUT_DIR = os.path.join(VAULT_ROOT, "05_OUTPUT", "Writing")
+WRITING_OUTPUT_DIR = os.path.join(VAULT_ROOT, "05_OUTPUT", "Writing", "Midgrad")
 
 def parse_desire_tags(desire_str):
     """
@@ -178,7 +178,7 @@ def generate_featured_moc_file(vault_root, generated_episodes):
         doc_lines.append(f"*{desc}*")
         
         for ep in series_groups[s_name]:
-            rel_link = f"05_OUTPUT/Writing/{s_name}/{ep['filename_no_ext']}"
+            rel_link = f"05_OUTPUT/Writing/Midgrad/{s_name}/{ep['filename_no_ext']}"
             doc_lines.append(f"* [[{rel_link}|📖 {ep['ep_num_str']} - {ep['episode_title']}]]")
         doc_lines.append("")
         
@@ -337,7 +337,7 @@ def sync_writings():
         with open(filepath, "w", encoding="utf-8-sig") as f:
             f.write(doc_content)
             
-        print(f"   ✅ Saved: 05_OUTPUT/Writing/{series_name}/{filename}")
+        print(f"   ✅ Saved: 05_OUTPUT/Writing/Midgrad/{series_name}/{filename}")
         
         generated_episodes.append({
             'series_name': series_name,

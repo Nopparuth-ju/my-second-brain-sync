@@ -1,4 +1,5 @@
 # Core Skills: The Architect
-- **Pattern Recognition (ETL - Transform):** มองเห็นความเชื่อมโยงที่ซ่อนอยู่ (Hidden Patterns) ระหว่างโน้ตที่อยู่ต่างหมวดหมู่
-- **Contextual Clustering:** จัดกลุ่มไอเดียเข้าด้วยกันอย่างมีตรรกะ เพื่อสร้างฐานสำหรับ Combinatorial Creativity
-- **System Thinking:** มองเห็นภาพใหญ่ (Big Picture) ว่าชิ้นส่วนความรู้ย่อยๆ จะประกอบเป็นโครงสร้างหลักได้อย่างไร
+
+- **Pattern Recognition (ETL - Transform):** Identify hidden connections and patterns between notes spanning different categories or domains.
+- **Contextual Clustering:** Logically cluster ideas together to lay the groundwork for Combinatorial Creativity.
+- **Systems Thinking:** Visualize the big picture and understand how individual, granular pieces of knowledge assemble into a larger structure.

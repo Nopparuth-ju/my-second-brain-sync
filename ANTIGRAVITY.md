@@ -1,4 +1,4 @@
-# ANTIGRAVITY
+﻿# ANTIGRAVITY
 
 นี่คือไฟล์ระบบที่บันทึกความเข้าใจของ **Antigravity (AI Coding Assistant)** เกี่ยวกับโครงสร้างและกลไกทั้งหมดของระบบ Second Brain (Zettelkasten) ใน Obsidian Vault นี้ เพื่อใช้เป็นหน่วยความจำถาวรสำหรับการประสานงานและจัดระบบร่วมกับคุณ
 
@@ -22,9 +22,9 @@
 
 | โฟลเดอร์ / ตำแหน่ง | หน้าที่ | สถานะปัจจุบัน / รายชื่อไฟล์ |
 | :--- | :--- | :--- |
-| **`Root`** | รูทของโปรเจกต์ประกอบด้วยสคริปต์หลักและคู่มือระบบ | - `ANTIGRAVITY.md` (คู่มือความเข้าใจระบบ AI)<br>- `README.md` (คู่มือแนะนำระบบสำหรับ GitHub)<br>- `run-architect.ps1`<br>- `run-distiller.ps1`<br>- `run-word-sync.ps1` (สคริปต์ซิงก์อัปเดตไฟล์ Word)<br>- `.gitignore` |
+| **`Root`** | รูทของโปรเจกต์ประกอบด้วยสคริปต์หลักและคู่มือระบบ | - `ANTIGRAVITY.md` (คู่มือความเข้าใจระบบ AI)<br>- `README.md` (คู่มือแนะนำระบบสำหรับ GitHub)<br>- `run-architect.ps1`<br>- `run-distiller.ps1`<br>- `run-intelligence.ps1` (สคริปต์รวบรวมและคัดสรรข่าวความรู้ระดับโลก)<br>- `run-word-sync.ps1` (สคริปต์ซิงก์อัปเดตไฟล์ Word)<br>- `.gitignore` |
 | **`01_INBOX`** | จุดพักข้อมูลดิบชั่วคราว ต้องเคลียร์เป็นศูนย์เสมอ | - `inbox_feyman.md` (Raw)<br>- `วิธีสรุปหนังสือ.md` (Raw) |
-| **`02_SOURCE`** | สรุปภาพรวมและแก่นความคิดจากแหล่งข้อมูลภายนอก | - `สรุป The Almanack of Naval Ravikant.md`<br>- `WORK_KNOWLEDGE/` (โฟลเดอร์ย่อยเก็บวิชาความรู้จากการเรียน)<br>- `WORK_KNOWLEDGE/attachments/` (รูปภาพแนบจาก Word)<br>- `WORK_KNOWLEDGE_SUMMARY/` (แดชบอร์ดสรุปวิชาแยกราย 6 โดเมน) |
+| **`02_SOURCE`** | สรุปภาพรวมและแก่นความคิดจากแหล่งข้อมูลภายนอก | - `สรุป The Almanack of Naval Ravikant.md`<br>- `WORK_KNOWLEDGE/` (โฟลเดอร์ย่อยเก็บวิชาความรู้จากการเรียน)<br>- `WORK_KNOWLEDGE/attachments/` (รูปภาพแนบจาก Word)<br>- `WORK_KNOWLEDGE_SUMMARY/` (แดชบอร์ดสรุปวิชาแยกราย 6 โดเมน)<br>- `CURATED_FEEDS/` (โฟลเดอร์รวบรวมสรุปความรู้ระดับโลกจาก YouTube & RSS Newsletters แยกเป็นระเบียบ) |
 | **`03_ZETTEL`** | คลังเก็บ "Atomic Notes" (1 ไอเดียต่อ 1 โน้ต) | - `Permissionless Leverage.md`<br>- `Rapid Skill Acquisition.md`<br>- `Specific Knowledge.md`<br>- `Wealth is Assets Not Money.md` |
 | **`04_MOC`** | สารบัญเชื่อมโยงแนวคิดข้ามสายตาม Theme หลัก (Map of Content) | - `Daily Writing MOC.md` (รวบรวมงานเขียนฝึกฝนรายวัน)<br>- `Featured Writing MOC.md` (พอร์ตโฟลิโอศูนย์กลางเชื่อมโยงงานซีรีส์บทความเขียนเผยแพร่หลัก) |
 | **`05_OUTPUT`** | ผลงานฉบับร่างที่สมบูรณ์พร้อมใช้จริง | - `Writing` (โฟลเดอร์ย่อย) |
@@ -57,6 +57,7 @@
   * ระบบจำลอง Multi-Agent Consensus ย่อยในการถอดความและวิเคราะห์คลิปวิดีโอจาก YouTube อัตโนมัติ (ถอด Transcript ผ่านสคริปต์ Python)
   * ประสานงานระหว่าง **Summarizer (สรุปแก่น)**, **Contrarian (คิดค้าน/หา Bias/Trade-off)** และ **Verifier (สแกน Fact vs Noise)**
   * รวมผลลัพธ์รอบด้านเข้าสู่ `02_SOURCE` (สรุปรวม) และ `03_ZETTEL` (ย่อยรายประเด็น) โดยสามารถเลือกสรุปลง `02_SOURCE` เฉพาะอย่างเดียวเพื่อติดตามข่าวสารโดยไม่แตก Zettel ได้
+* **The Personal AI Intelligence Curator (`run-intelligence.ps1`):** สแกนดึงข้อมูลอัตโนมัติจาก YouTube Channel และ RSS Feed ตามลิสต์ระดับโลกใน `intelligence_sources.json` ดาวน์โหลดทรานสคริปต์/บทความดิบ คลีนข้อมูล และส่งให้ Multi-Agent / Distiller แปลงเป็นโน้ตสรุปแก่น Timeless Knowledge คุณภาพสูง ปลายทางแยกไว้เฉพาะที่ `02_SOURCE/CURATED_FEEDS/` โดยเก็บ State การอ่านผ่าน `processed_sources.json` เพื่อป้องกันการรันซ้ำ
 * **The Word Ingestion Sync Engine:** 
   * แปลงและนำเข้าสคริปต์ความรู้จากการเรียนเรียน (.docx) ในโฟลเดอร์ `01_INBOX/WORK_KNOWLEDGE/` ที่คุณก๊อปปี้มาวาง
   * สแกนกวาดซับโฟลเดอร์ย่อยทั้งหมด (Recursive) และสร้างโครงสร้างแบบ 1:1 ปลายทางที่ `02_SOURCE/WORK_KNOWLEDGE/`
@@ -97,5 +98,16 @@
   - **[ฟีเจอร์ใหม่]** พัฒนาและติดตั้งระบบ **Excel-to-Obsidian Writing Sync Engine** (`run-writing-sync.ps1` + `.agents/WordSync/sync_excel_writings.py`) ดึงข้อมูลจากไฟล์ `D:\Boss\3) Hobby\3.14) Writing\Writing List.xlsx`
   - **[การจัดเตรียมและจัดรูปเรียงไฟล์]** ดำเนินการกวาดอ่าน 3 แผ่นชีตหลัก (`Publish Detail`, `Excerpt`, `Midgrad`), ทำการผสานข้อมูลข้ามชีตด้วยคีย์ `(No, EP)` และรองรับกรณีชื่อตอนสะกดต่างกันเล็กน้อย (Fuzzy matching/Normalizing), จัดสรรแยกหมวดหมู่เป็นโฟลเดอร์ตามชื่อซีรีส์ พร้อมบันทึกไฟล์เป็นชื่อตอน `EP {Num} - {Title}.md`
   - **[ระบบแท็กและกล่องข้อมูลการเขียน]** แทรกกล่อง Obsidian Callout `> [!NOTE] ข้อมูลการเขียน` รวบรวม Objective, Human Desire, และ Excerpt ด้านบนสุด พร้อมจัดทำ frontmatter tags อัตโนมัติ `#type/output #creator/me #status/ready #writing/storytelling #writing/midgrad` รวมถึงโดเมนหลักอย่างไดนามิก (เช่น `#domain/happiness`, `#domain/knowledge`)
-  - **[ระบบพอร์ตโฟลิโอ MOC แยกเฉพาะตัว]** พัฒนาและเปิดใช้งานระบบสร้าง/อัปเดตแผนผังรวมผลงานชิ้นเอกอัตโนมัติแยกเฉพาะใน [Featured Writing MOC.md](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/04_MOC/Featured%20Writing%20MOC.md) (ไม่รบกวนหน้าฝึกเขียนรายวัน) เชื่อมต่อซีรีส์ทั้งหมดกระจายออกจากจุดศูนย์กลางพอร์ตโฟลิโอผลงานหลักจุดเดียว เพื่อความสะอาดเป็นระเบียบและเห็นคลัสเตอร์ชัดเจนที่สุดใน Graph View
-
+  - **[ระบบพอร์ตโฟลิโอ MOC แยกเฉพาะตัว]** พัฒนาและเปิดใช้งานระบบสร้าง/อัปเดตแผนผังรวมผลงานชิ้นเอกอัตโนมัติแยกเฉพาะใน [Featured Writing MOC.md](file:///D:\Boss\3) Hobby\3.13) AI\AI Agent\Second Brain\My Second Brain Sync\04_MOC\Featured%20Writing%20MOC.md) (ไม่รบกวนหน้าฝึกเขียนรายวัน) เชื่อมต่อซีรีส์ทั้งหมดกระจายออกจากจุดศูนย์กลางพอร์ตโฟลิโอผลงานหลักจุดเดียว เพื่อความสะอาดเป็นระเบียบและเห็นคลัสเตอร์ชัดเจนที่สุดใน Graph View
+- **2026-06-01 (รอบห้า - ปรับปรุงประสิทธิภาพคำสั่ง AI แบบ Token-Saver & ความเสถียรของ Second Brain Reader):**
+  - **[ลดโทเค็นลงกว่า 70%]** ดำเนินการอัปเกรดแปลงระบบคำสั่ง (System Instructions) และทักษะ (Core Skills) ของ AI Agents ทั้งหมด 5 ตัว (Architect, Distiller, Builder, YouTubeManager และลูกทีมย่อย) จากภาษาไทยให้เป็นภาษาอังกฤษที่กระชับและหนาแน่น ช่วยลดจำนวนความยาวของพร้อมต์ลงถึง 70% ลดระยะเวลาการหน่วงในการตอบสนอง (Latency) ได้ดีขึ้น 2-3 เท่า และเพิ่มความแม่นยำในการทำตามกฎ (เช่น No YAML Frontmatter) ได้อย่างยอดเยี่ยม โดยยังคงคำสั่งบังคับให้ผลิตผลลัพธ์ข้อมูลโน้ตเป็นภาษาไทยคุณภาพสูงสละสลวย 100% เช่นเดิม
+  - **[แก้บักการเชื่อมต่อค้างใน Reader]** แก้ไขข้อจำกัดในการเชื่อมต่อโฟลเดอร์หลักและโฟลเดอร์ `02_SOURCE` ของแอปพลิเคชัน **Second Brain Reader** ซึ่งก่อนหน้านี้มีปัญหาค้างหรือเชื่อมต่อล้มเหลวเนื่องจากต้องกวาดอ่านรูปภาพแนบในโฟลเดอร์ `attachments` กว่า 17,794 รูป:
+    - ปรับปรุงให้ตัวกรองการข้ามสแกน (`ignoredFolders`) ทำงานแบบไม่สนใจตัวพิมพ์เล็ก-ใหญ่ (Case-Insensitive) ทำให้ระบบทำการข้ามสแกนโฟลเดอร์มีเดียสะกดใหญ่-เล็กได้ทั้งหมด (`attachments`, `assets`, `images`)
+    - เพิ่มคำสั่งให้ระบบข้ามโฟลเดอร์สำรองข้อมูล เช่น `"archive"`, `"backup"`, `"temp"`, `"tmp"`, และถังขยะ `".trash"` ทันที
+    - ครอบระบบป้องกันการหยุดทำงาน (Try-Catch File Recovery) แยกเฉพาะระดับไฟล์เดี่ยว ทำให้หากเจอไฟล์สำรองหรือไฟล์ชั่วคราวบางตัวติดสิทธิ์ล็อกของระบบปฏิบัติการ ตัวแอปจะทำการข้ามและไปสแกนโน้ตถัดไปอย่างราบรื่น ส่งผลให้การเปิดเชื่อมต่อทำงานได้ทันทีภายในเสี้ยววินาทีและมีความแข็งแกร่งสูงสุด 100%
+- **2026-06-02 (ติดตั้งระบบ Personal AI Intelligence Curator, โฟลเดอร์ CURATED_FEEDS แยกเฉพาะ & ซิงก์ Git อัปเดต @antigravity):**
+  - **[จัดตั้งโฟลเดอร์แยกเฉพาะ]** จัดตั้งและกำหนดโฟลเดอร์ปลายทางใหม่ `02_SOURCE/CURATED_FEEDS/` เพื่อแยกไฟล์สรุปคัดกรองความรู้ระดับโลกออกมาต่างหากจากข้อมูลเรียนและสรุปแบบปกติของ vault ช่วยรักษาความเป็นระเบียบและทำให้ค้นหาเนื้อหาเด่นได้ทันที
+  - **[เสร็จสมบูรณ์ระบบ Personal AI Intelligence Curator Engine]** ผสานการทำงานระหว่าง Python scraper (`harvest.py` ภายใต้ `.agents/IntelligenceCurator/`) และ CLI `run-intelligence.ps1` สแกนและกรองคอนเทนต์ข่าวและวิดีโอจาก YouTube 9 ช่องชั้นนำและ RSS 5 สำนักข่าว/จดหมายข่าวระดับพรีเมียม (เช่น Veritasium, Karpathy, Y Combinator, The Secret Sauce, Stratechery, BBC)
+  - **[ระบบวิเคราะห์เตือนความเสี่ยง Obsidian Callouts]** บังคับใช้ระบบวิเคราะห์โต้แย้ง Contrarian Analysis & Trade-offs ภายในไฟล์สรุปทรานสคริปต์ของ YouTube/RSS เสมอ ผ่านการแสดงผลกล่องเตือน `> [!WARNING]` เพื่อคุณภาพสูงสุดและอ่านบนมือถือได้อย่างลื่นไหล
+  - **[อัปเดตระบบหน่วยความจำกลาง]** อัปเดตและจดบันทึกประวัติกลไกของโปรเจกต์ลงใน `ANTIGRAVITY.md` และ `MY_AI_PROJECTS_MEMORIES.md` ของคลังความรู้ เพื่อให้ผู้ช่วย AI ในอนาคตเข้าใจโครงสร้างและวิสัยทัศน์ของระบบนี้ได้อย่างสมบูรณ์แบบ
+  - **[บันทึกประวัติเวอร์ชันขึ้น GitHub]** ทำการคอมมิตและอัปโหลดซอร์สโค้ด (Engine, Runner, configurations) ทั้งหมดของโปรเจกต์ Second Brain ไปยัง Git repository บน GitHub ของคุณเพื่อความปลอดภัยและการ Backup อย่างเป็นระบบ

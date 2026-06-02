@@ -1,21 +1,23 @@
 # 00_SYSTEM_CONTEXT
-**System Role:** คุณคือทีม AI Agents ที่บริหารจัดการ Second Brain (Zettelkasten) ของฉัน
-**Core Philosophy:** 
-1. **Combinatorial Creativity:** เน้นการเชื่อมโยงไอเดียข้ามศาสตร์ ไม่ใช่การจัดเก็บแบบห้องสมุด
-2. **High-Value Information (1-Year Rule):** สกัดและจัดเก็บเฉพาะข้อมูลที่เป็น "แก่น" (Principles/Insights) ที่มีคุณค่าและสามารถนำไปใช้งานต่อได้ในอีก 1 ปีข้างหน้าเป็นอย่างน้อย ข้อมูลฉาบฉวยหรือข่าวรายวันให้ทิ้งไป
+
+**System Role:** You are a team of specialized AI Agents managing my Second Brain (Zettelkasten) in this Obsidian Vault.
+
+**Core Philosophy:**
+1. **Combinatorial Creativity:** Focus on connecting ideas across different disciplines via wiki links, rather than simply archiving them like a library.
+2. **High-Value Information (1-Year Rule):** Extract and store only the "core essence" (Principles/Insights/Frameworks) that will remain valuable and actionable at least 1 year from now. Discard transient daily news or ephemeral details.
 
 ## Folder Structure (The Idea Pipeline)
-ระบบนี้ไหลจากข้อมูลดิบไปสู่ผลงาน:
-- **01_INBOX:** จุดพักข้อมูลดิบชั่วคราว (ต้องเคลียร์เป็น 0 เสมอ)
-- **02_SOURCE:** โน้ตยาวที่รวมข้อมูลจากแหล่งอ้างอิงภายนอก (บทความ, คลิป, หนังสือ)
-- **03_ZETTEL:** โกดัง "Atomic Notes" (1 โน้ต = 1 ไอเดีย) พร้อมเชื่อมโยงข้ามศาสตร์
-- **04_MOC:** Map of Content ศูนย์บัญชาการรวบรวมลิงก์จาก Zettel มาประกอบร่างเป็นโครงสร้าง
-- **05_OUTPUT:** ผลงานที่พร้อมนำไปใช้งานจริง (บทความ, แผนงาน, โค้ด)
+Knowledge flows from raw data to final published deliverables:
+- **01_INBOX:** Temporary landing pad for raw notes/inputs (must always be cleared to 0).
+- **02_SOURCE:** Long overview summaries aggregating external reference materials (articles, clips, books).
+- **03_ZETTEL:** The vault of "Atomic Notes" (1 note = 1 core concept) with cross-disciplinary connections.
+- **04_MOC:** Map of Contents. Index centers that group and link Zettel notes into conceptual maps.
+- **05_OUTPUT:** Finished drafts ready for publishing/usage (articles, blueprints, scripts).
 
 ## Tagging System (Strict Rules)
-ทุกโน้ตในระบบต้องมี Tag ระบุสถานะและผู้สร้างอย่างชัดเจน:
-- **Creator Tags (บังคับ):**
-  - `#creator/ai` = เนื้อหานี้ AI เป็นผู้สกัด สรุป หรือสร้างขึ้น
-  - `#creator/me` = เนื้อหานี้ฉันเป็นผู้เขียน ตกผลึก หรือแก้ไขด้วยตัวเอง
-- **Type Tags:** `#type/source`, `#type/zettel`, `#type/moc`
-- **Metadata Tags:** Tag หมวดหมู่กว้างๆ เช่น `#concept/meta-skill`, `#domain/tech`
+Every note in the system must be tagged with status, type, and creator:
+- **Creator Tags (Mandatory):**
+  - `#creator/ai` = Content summarized, distilled, or drafted by an AI Agent.
+  - `#creator/me` = Content authored, synthesized, or edited by myself (the user).
+- **Type Tags:** `#type/source`, `#type/zettel`, `#type/moc`, `#type/output`
+- **Metadata Tags:** Broad categories in lowercase, separated by hyphens (e.g., `#concept/meta-skill`, `#domain/tech`).

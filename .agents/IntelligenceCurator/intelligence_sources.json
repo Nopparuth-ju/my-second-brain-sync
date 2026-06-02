@@ -1,0 +1,62 @@
+{
+  "youtube_channels": [
+    {
+      "name": "Veritasium",
+      "channel_id": "UCsXVkYYQyEsAn78C26g35mA"
+    },
+    {
+      "name": "Naval Ravikant",
+      "channel_id": "UCJeVd6G4S911wE4V9P4wB1g"
+    },
+    {
+      "name": "Mission To The Moon Media",
+      "channel_id": "UCxS4Z7kM5jX1yL3Q6V-JjJg"
+    },
+    {
+      "name": "Andrej Karpathy",
+      "channel_id": "UC7k7oWd5VwH661tFp_N6c6A"
+    },
+    {
+      "name": "9arm",
+      "channel_id": "UCgX1887V9S2S62T020wDkSg"
+    },
+    {
+      "name": "Huberman Lab",
+      "channel_id": "UCx5c_kXtDRn73TjVw48u3oA"
+    },
+    {
+      "name": "Y Combinator",
+      "channel_id": "UCcefcZRL2ojA_uILSNvRkYA"
+    },
+    {
+      "name": "Kurzgesagt – In a Nutshell",
+      "channel_id": "UCsXVk37bltHxD1rDP4NM8qA"
+    },
+    {
+      "name": "The Secret Sauce",
+      "channel_id": "UC9WlLtavtOylaWHDl6Uk00Q"
+    }
+  ],
+  "rss_feeds": [
+    {
+      "name": "BBC News Technology",
+      "url": "http://feeds.bbci.co.uk/news/technology/rss.xml"
+    },
+    {
+      "name": "Hacker News",
+      "url": "https://news.ycombinator.com/rss"
+    },
+    {
+      "name": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/feed/"
+    },
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/"
+    },
+    {
+      "name": "Stratechery by Ben Thompson",
+      "url": "https://stratechery.com/feed/"
+    }
+  ]
+}
