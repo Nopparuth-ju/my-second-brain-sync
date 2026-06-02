@@ -181,7 +181,7 @@ def process_youtube_entry(entry):
         "Also analyze based on the roles of sub-agents in .agents/YouTubeManager/Summarizer.md, .agents/YouTubeManager/Contrarian.md, "
         "and .agents/YouTubeManager/Verifier.md. Then read the video transcript in .agents/YouTubeManager/temp_transcript.txt. "
         f"Referencing the YouTube link {entry['url']}, process and generate exactly 1 summary note under 02_SOURCE/CURATED_FEEDS/ only "
-        f"(do NOT create files in 03_ZETTEL). You MUST fill the 'วันที่สรุปข้อมูล' template field with '{today_str}' directly under the source link. "
+        f"(do NOT create files in 03_ZETTEL). You MUST fill the 'Analysis Date' template field with '{today_str}' directly under the source link. "
         "Name the summary file beautifully in Thai based on the core thesis of the content."
     )
     
@@ -225,7 +225,7 @@ def process_rss_entry(entry):
         "Read the rules and skills from .agents/Distiller/skill.md and .agents/Distiller/instruction.md first. "
         f"Then read the article content stored in .agents/IntelligenceCurator/temp_article.txt referencing URL {entry['url']}. "
         "Process and extract the core knowledge into exactly 1 summary note under 02_SOURCE/CURATED_FEEDS/ only "
-        f"(do NOT create files in 03_ZETTEL). You MUST fill the 'วันที่สรุปข้อมูล' template field with '{today_str}' directly under the source link. "
+        f"(do NOT create files in 03_ZETTEL). You MUST fill the 'Analysis Date' template field with '{today_str}' directly under the source link. "
         "Name the summary file beautifully in Thai based on the core thesis of the content."
     )
     
