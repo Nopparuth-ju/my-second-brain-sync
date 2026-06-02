@@ -177,12 +177,12 @@ def process_youtube_entry(entry):
     print("⏳ Step 2: Running YouTube Multi-Agent Pipeline via AI Agent...")
     today_str = datetime.date.today().strftime('%Y-%m-%d')
     prompt = (
-        "ให้อ่านกฎและทักษะจากไฟล์ .agents/YouTubeManager/skill.md และ .agents/YouTubeManager/instruction.md ก่อน "
-        "รวมถึงวิเคราะห์ตามหน้าที่ของลูกทีมย่อยจาก .agents/YouTubeManager/Summarizer.md, .agents/YouTubeManager/Contrarian.md "
-        f"และ .agents/YouTubeManager/Verifier.md จากนั้นอ่านบทถอดความจากวิดีโอ (Transcript) ในไฟล์ .agents/YouTubeManager/temp_transcript.txt "
-        f"อ้างอิงลิงก์ YouTube {entry['url']} ช่วยประมวลผลสร้างเฉพาะโน้ตสรุปภาพรวมความเห็นต่างและข้อเท็จจริง 1 ไฟล์เซฟลงใน 02_SOURCE/CURATED_FEEDS เท่านั้น "
-        f"(ไม่ต้องสร้างไฟล์ใน 03_ZETTEL) โดยระบุที่มาอย่างถูกต้อง และบังคับระบุ 'วันที่สรุปข้อมูล: {today_str}' ไว้ใต้บรรทัดที่มา "
-        "และตั้งชื่อไฟล์ตามแก่นของเนื้อหา"
+        "Read the rules and skills from .agents/YouTubeManager/skill.md and .agents/YouTubeManager/instruction.md first. "
+        "Also analyze based on the roles of sub-agents in .agents/YouTubeManager/Summarizer.md, .agents/YouTubeManager/Contrarian.md, "
+        "and .agents/YouTubeManager/Verifier.md. Then read the video transcript in .agents/YouTubeManager/temp_transcript.txt. "
+        f"Referencing the YouTube link {entry['url']}, process and generate exactly 1 summary note under 02_SOURCE/CURATED_FEEDS/ only "
+        f"(do NOT create files in 03_ZETTEL). You MUST insert 'วันที่สรุปข้อมูล: {today_str}' directly under the source link. "
+        "Name the summary file beautifully in Thai based on the core thesis of the content."
     )
     
     # Run agy CLI tool
@@ -222,10 +222,11 @@ def process_rss_entry(entry):
     print("⏳ Step 2: Invoking AI Distiller Agent...")
     today_str = datetime.date.today().strftime('%Y-%m-%d')
     prompt = (
-        "ให้อ่านกฎและทักษะจากไฟล์ .agents/Distiller/skill.md และ .agents/Distiller/instruction.md ก่อน "
-        f"จากนั้นอ่านข้อมูลบทความเนื้อหาที่เซฟไว้ในไฟล์ .agents/IntelligenceCurator/temp_article.txt อ้างอิงแหล่งที่มาจาก URL {entry['url']} "
-        f"ช่วยประมวลผลสกัดความรู้อ่านแล้วเขียนสรุปภาพรวมทั้งหมด 1 ไฟล์เซฟไว้ที่ 02_SOURCE/CURATED_FEEDS อย่างเดียวเท่านั้น (ไม่ต้องสร้างไฟล์ใน 03_ZETTEL) "
-        f"โดยบังคับระบุ 'วันที่สรุปข้อมูล: {today_str}' ไว้ใต้บรรทัดที่มา และตั้งชื่อไฟล์สรุปตามแก่นเรื่องเป็นภาษาไทยอย่างสวยงามและน่าอ่านเป็นระบบ"
+        "Read the rules and skills from .agents/Distiller/skill.md and .agents/Distiller/instruction.md first. "
+        f"Then read the article content stored in .agents/IntelligenceCurator/temp_article.txt referencing URL {entry['url']}. "
+        "Process and extract the core knowledge into exactly 1 summary note under 02_SOURCE/CURATED_FEEDS/ only "
+        f"(do NOT create files in 03_ZETTEL). You MUST insert 'วันที่สรุปข้อมูล: {today_str}' directly under the source link. "
+        "Name the summary file beautifully in Thai based on the core thesis of the content."
     )
     
     res = subprocess.run(["agy", "-p", prompt], capture_output=True, text=True)
