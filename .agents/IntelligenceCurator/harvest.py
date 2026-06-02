@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ET
 import re
 import subprocess
 import html
+import datetime
 
 # Reconfigure standard output to support UTF-8 (emojis and Thai characters) in Windows console
 if sys.platform.startswith('win'):
@@ -174,12 +175,14 @@ def process_youtube_entry(entry):
         
     # 2. Invoke agy AI Agent to distill the video content
     print("⏳ Step 2: Running YouTube Multi-Agent Pipeline via AI Agent...")
+    today_str = datetime.date.today().strftime('%Y-%m-%d')
     prompt = (
         "ให้อ่านกฎและทักษะจากไฟล์ .agents/YouTubeManager/skill.md และ .agents/YouTubeManager/instruction.md ก่อน "
         "รวมถึงวิเคราะห์ตามหน้าที่ของลูกทีมย่อยจาก .agents/YouTubeManager/Summarizer.md, .agents/YouTubeManager/Contrarian.md "
         f"และ .agents/YouTubeManager/Verifier.md จากนั้นอ่านบทถอดความจากวิดีโอ (Transcript) ในไฟล์ .agents/YouTubeManager/temp_transcript.txt "
         f"อ้างอิงลิงก์ YouTube {entry['url']} ช่วยประมวลผลสร้างเฉพาะโน้ตสรุปภาพรวมความเห็นต่างและข้อเท็จจริง 1 ไฟล์เซฟลงใน 02_SOURCE/CURATED_FEEDS เท่านั้น "
-        "(ไม่ต้องสร้างไฟล์ใน 03_ZETTEL) โดยระบุที่มาอย่างถูกต้องและตั้งชื่อไฟล์ตามแก่นของเนื้อหา"
+        f"(ไม่ต้องสร้างไฟล์ใน 03_ZETTEL) โดยระบุที่มาอย่างถูกต้อง และบังคับระบุ 'วันที่สรุปข้อมูล: {today_str}' ไว้ใต้บรรทัดที่มา "
+        "และตั้งชื่อไฟล์ตามแก่นของเนื้อหา"
     )
     
     # Run agy CLI tool
@@ -217,11 +220,12 @@ def process_rss_entry(entry):
         
     # 2. Invoke agy AI Agent to distill the article content
     print("⏳ Step 2: Invoking AI Distiller Agent...")
+    today_str = datetime.date.today().strftime('%Y-%m-%d')
     prompt = (
         "ให้อ่านกฎและทักษะจากไฟล์ .agents/Distiller/skill.md และ .agents/Distiller/instruction.md ก่อน "
         f"จากนั้นอ่านข้อมูลบทความเนื้อหาที่เซฟไว้ในไฟล์ .agents/IntelligenceCurator/temp_article.txt อ้างอิงแหล่งที่มาจาก URL {entry['url']} "
-        "ช่วยประมวลผลสกัดความรู้อ่านแล้วเขียนสรุปภาพรวมทั้งหมด 1 ไฟล์เซฟไว้ที่ 02_SOURCE/CURATED_FEEDS อย่างเดียวเท่านั้น (ไม่ต้องสร้างไฟล์ใน 03_ZETTEL) "
-        "และตั้งชื่อไฟล์สรุปตามแก่นเรื่องเป็นภาษาไทยอย่างสวยงามและน่าอ่านเป็นระบบ"
+        f"ช่วยประมวลผลสกัดความรู้อ่านแล้วเขียนสรุปภาพรวมทั้งหมด 1 ไฟล์เซฟไว้ที่ 02_SOURCE/CURATED_FEEDS อย่างเดียวเท่านั้น (ไม่ต้องสร้างไฟล์ใน 03_ZETTEL) "
+        f"โดยบังคับระบุ 'วันที่สรุปข้อมูล: {today_str}' ไว้ใต้บรรทัดที่มา และตั้งชื่อไฟล์สรุปตามแก่นเรื่องเป็นภาษาไทยอย่างสวยงามและน่าอ่านเป็นระบบ"
     )
     
     res = subprocess.run(["agy", "-p", prompt], capture_output=True, text=True)

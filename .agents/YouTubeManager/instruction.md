@@ -58,6 +58,7 @@ Create one main summary note inside `02_SOURCE` using the following layout. If C
 #status/processed
 #domain/[Category in lowercase]
 ที่มา: [Video Title in Thai/English](YouTube Video URL)
+วันที่สรุปข้อมูล: [YYYY-MM-DD]
 #creator/ai
 
 # สรุปภาพรวมคลิป: [Video Title in Thai/English]

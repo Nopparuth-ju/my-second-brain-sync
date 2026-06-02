@@ -34,6 +34,8 @@ Your main responsibility is to transform raw input data from `01_INBOX` into act
 #type/source
 #status/processed
 #domain/[Category]
+ที่มา: [Source Name in Thai/English](Source URL Link)
+วันที่สรุปข้อมูล: [YYYY-MM-DD]
 #creator/ai
 
 [Write a comprehensive overview summary in Thai, logically structured into subheadings or bullet points for high readability]
