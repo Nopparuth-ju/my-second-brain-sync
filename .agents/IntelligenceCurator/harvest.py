@@ -125,29 +125,41 @@ def parse_rss_feed(feed_name, feed_url):
     entries = []
     try:
         root = ET.fromstring(xml_data)
+        
+        items = []
         # Support RSS 2.0 structure
         channel = root.find('channel')
         if channel is not None:
-            for item in channel.findall('item'):
-                title_elem = item.find('title')
-                link_elem = item.find('link')
-                guid_elem = item.find('guid')
+            items = channel.findall('item')
+        else:
+            # Support Atom feeds (used by some blogs like Substack, LessWrong)
+            ns = {'atom': 'http://www.w3.org/2005/Atom'}
+            items = root.findall('atom:entry', ns)
+        
+        for item in items:
+            # RSS uses <title>, <link>, <guid>; Atom uses <title>, <link href="...">, <id>
+            title_elem = item.find('title') or item.find('{http://www.w3.org/2005/Atom}title')
+            link_elem = item.find('link') or item.find('{http://www.w3.org/2005/Atom}link')
+            guid_elem = item.find('guid') or item.find('{http://www.w3.org/2005/Atom}id')
+            
+            if title_elem is not None and link_elem is not None:
+                title = title_elem.text
+                # Atom <link> stores URL in href attribute, RSS stores it as text
+                link = link_elem.get('href') or link_elem.text
+                if not title or not link:
+                    continue
+                # Use GUID if present, otherwise fallback to URL
+                item_id = (guid_elem.text if guid_elem is not None and guid_elem.text else link)
+                # Clean ID to prevent special char problems
+                clean_id = re.sub(r'[^a-zA-Z0-9]', '_', item_id)
                 
-                if title_elem is not None and link_elem is not None:
-                    title = title_elem.text
-                    link = link_elem.text
-                    # Use GUID if present, otherwise fallback to URL
-                    item_id = guid_elem.text if guid_elem is not None else link
-                    # Clean ID to prevent special char problems
-                    clean_id = re.sub(r'[^a-zA-Z0-9]', '_', item_id)
-                    
-                    entries.append({
-                        'type': 'rss',
-                        'id': f"rss_{clean_id[:50]}",
-                        'title': title,
-                        'url': link,
-                        'source': feed_name
-                    })
+                entries.append({
+                    'type': 'rss',
+                    'id': f"rss_{clean_id[:50]}",
+                    'title': title,
+                    'url': link,
+                    'source': feed_name
+                })
     except Exception as e:
         print(f"⚠️ XML Parse Error for RSS {feed_name}: {e}", file=sys.stderr)
         
@@ -195,6 +207,9 @@ def process_youtube_entry(entry):
         return True
     else:
         print(f"❌ Error invoking agy: {res.stderr}")
+        # Clean up transcript on failure too
+        if os.path.exists(temp_transcript):
+            os.remove(temp_transcript)
         return False
 
 def process_rss_entry(entry):
@@ -243,12 +258,35 @@ def process_rss_entry(entry):
             os.remove(temp_article_path)
         return False
 
+import argparse
+
 def main():
-    print("🚀 --- starting Personal AI Intelligence Curator Engine ---")
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--max-process', type=int, default=3, help='Maximum number of items to process')
+    args = parser.parse_args()
+    
+    print("=========================================================")
+    print("  🧠 Personal AI Intelligence Curator Engine 🧠")
     
     # Ensure CURATED_FEEDS directory and today's subfolder exists
     today_str = datetime.date.today().strftime('%Y-%m-%d')
-    os.makedirs(os.path.join(VAULT_ROOT, "02_SOURCE", "CURATED_FEEDS", today_str), exist_ok=True)
+    curated_feeds_dir = os.path.join(VAULT_ROOT, "02_SOURCE", "CURATED_FEEDS")
+    os.makedirs(os.path.join(curated_feeds_dir, today_str), exist_ok=True)
+    
+    # Extract all processed URLs from existing markdown files to prevent any duplicates
+    processed_urls = set()
+    for root_dir, _, files in os.walk(curated_feeds_dir):
+        for file in files:
+            if file.endswith('.md'):
+                file_path = os.path.join(root_dir, file)
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        # Find all URLs in the file
+                        urls = re.findall(r'https?://[^\s)\]"\']+', content)
+                        processed_urls.update(urls)
+                except Exception:
+                    pass
     
     # Load settings and processed state
     config = load_json(SOURCES_CONFIG_PATH)
@@ -262,7 +300,7 @@ def main():
         try:
             entries = parse_youtube_feed(ch["name"], ch["channel_id"])
             for entry in entries:
-                if entry["id"] not in processed_ids:
+                if entry["id"] not in processed_ids and entry["url"] not in processed_urls:
                     new_entries.append(entry)
         except Exception as e:
             print(f"⚠️ Failed to scan channel {ch.get('name')}: {e}", file=sys.stderr)
@@ -272,7 +310,7 @@ def main():
         try:
             entries = parse_rss_feed(f["name"], f["url"])
             for entry in entries:
-                if entry["id"] not in processed_ids:
+                if entry["id"] not in processed_ids and entry["url"] not in processed_urls:
                     new_entries.append(entry)
         except Exception as e:
             print(f"⚠️ Failed to scan feed {f.get('name')}: {e}", file=sys.stderr)
@@ -283,9 +321,54 @@ def main():
         print("✅ No new content. Your Second Brain is fully up-to-date!")
         sys.exit(0)
         
-    # Process new entries (limit to 3 per run to prevent token/quota overload, can be adjusted)
+    max_process = args.max_process
+    
+    # Prioritization Step via AI
+    if len(new_entries) > max_process:
+        print(f"⏳ Discovered {len(new_entries)} items, which exceeds the quota of {max_process}.")
+        print("🧠 Invoking Prioritizer Agent to select the most Timeless & High-Signal content...")
+        
+        # Prepare data for AI
+        prioritize_data = [{"id": e["id"], "title": e["title"], "source": e["source"]} for e in new_entries]
+        temp_prioritize_path = os.path.join(CUR_DIR, "temp_prioritize.json")
+        save_json(temp_prioritize_path, prioritize_data)
+        
+        prioritized_ids_path = os.path.join(CUR_DIR, "prioritized_ids.json")
+        if os.path.exists(prioritized_ids_path):
+            os.remove(prioritized_ids_path)
+            
+        prompt = (
+            "Read the rules and skills from .agents/Prioritizer/skill.md and .agents/Prioritizer/instruction.md first. "
+            f"Here is the list of items in .agents/IntelligenceCurator/temp_prioritize.json. "
+            f"Select exactly the top {max_process} items. Save the final JSON array of their IDs to '.agents/IntelligenceCurator/prioritized_ids.json' using your file writing tool. Do not just print it."
+        )
+        
+        res = subprocess.run(["agy", "--dangerously-skip-permissions", "-p", prompt], capture_output=False)
+        if res.returncode == 0:
+            try:
+                if not os.path.exists(prioritized_ids_path):
+                    raise ValueError("Prioritizer Agent failed to create prioritized_ids.json")
+                    
+                selected_ids = set(load_json(prioritized_ids_path))
+                if not selected_ids:
+                    raise ValueError("prioritized_ids.json is empty or invalid")
+                    
+                new_entries = [e for e in new_entries if e["id"] in selected_ids]
+                print(f"✅ Prioritization complete! Selected {len(new_entries)} items.")
+                os.remove(prioritized_ids_path)
+            except Exception as e:
+                print(f"⚠️ Failed to parse Prioritizer output. Falling back to standard slicing. Error: {e}")
+                new_entries = new_entries[:max_process]
+        else:
+            print(f"⚠️ Prioritizer Agent failed. Falling back to standard slicing.")
+            new_entries = new_entries[:max_process]
+            
+        if os.path.exists(temp_prioritize_path):
+            os.remove(temp_prioritize_path)
+    else:
+        new_entries = new_entries[:max_process]
+        
     processed_count = 0
-    max_process = 5
     
     for entry in new_entries:
         if processed_count >= max_process:
@@ -303,6 +386,7 @@ def main():
             processed_count += 1
             # Save state incrementally to ensure progress is saved in case of failure
             state["processed_ids"] = list(processed_ids)
+            state["last_updated"] = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             save_json(STATE_PATH, state)
             
     print(f"\n🎉 Successfully processed and distilled {processed_count} new entries!")

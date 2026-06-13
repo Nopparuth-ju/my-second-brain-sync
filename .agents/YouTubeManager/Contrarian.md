@@ -14,12 +14,12 @@
 Output ONLY the following Markdown structure (for the Manager to synthesize):
 
 ```markdown
-### 1. ความเสี่ยงและจุดบกพร่องเชิงโครงสร้าง (Structural Risks & Assumptions)
+### 1. Structural Risks & Assumptions
 - [Identify what assumptions the speaker makes that may not always be true, in Thai]
 
-### 2. ข้อดีข้อเสียที่ต้องแลก (Trade-off Analysis)
+### 2. Trade-off Analysis
 - ⚖️ [Describe what must be sacrificed or traded off to achieve the claimed success, in Thai]
 
-### 3. กรณีที่ทฤษฎีนี้จะใช้งานไม่ได้ผล (Limitation & Failure Modes)
+### 3. Limitation & Failure Modes
 - 🚫 [Specify situations, contexts, or types of businesses/individuals where this theory will fail, in Thai]
 ```

@@ -35,28 +35,80 @@
     {
       "name": "The Secret Sauce",
       "channel_id": "UCO1U9Jwy_mtXcsC4Z0NH3Bg"
+    },
+    {
+      "name": "THE STANDARD",
+      "channel_id": "UCk1v3FzlMu3r34LYgoHpH2w"
+    },
+    {
+      "name": "THE STANDARD WEALTH",
+      "channel_id": "UCCbmc3WgGqICujNEjMWrGdQ"
+    },
+    {
+      "name": "The Money Coach (การเงิน/ธุรกิจ)",
+      "channel_id": "UCn5Y_KiTtgQWS3mibkbYJEA"
+    },
+    {
+      "name": "Nopadol's Story (Productivity/หนังสือ)",
+      "channel_id": "UCU0xBJwUQh_fgDiskOUWIWw"
+    },
+    {
+      "name": "DataRockie (Data/Tech/AI)",
+      "channel_id": "UC8kSj8rxbF45_UcjfnIQCfg"
+    },
+    {
+      "name": "Ali Abdaal (Productivity/Life)",
+      "channel_id": "UCoOae5nYA7VqaXzerajD0lg"
+    },
+    {
+      "name": "The School of Life (Philosophy)",
+      "channel_id": "UC7IcJI8PUf5Z3zKxnZvTBog"
+    },
+    {
+      "name": "Thomas Frank (Productivity/Learning)",
+      "channel_id": "UCG-KntY7aVnIGXYEBQvmBAQ"
     }
   ],
   "rss_feeds": [
     {
-      "name": "BBC News Technology",
-      "url": "http://feeds.bbci.co.uk/news/technology/rss.xml"
+      "name": "Farnam Street (Mental Models)",
+      "url": "https://fs.blog/feed/"
     },
     {
-      "name": "Hacker News",
-      "url": "https://news.ycombinator.com/rss"
+      "name": "Wait But Why (Deep Thinking)",
+      "url": "https://waitbutwhy.com/feed"
+    },
+    {
+      "name": "Collaborative Fund by Morgan Housel",
+      "url": "https://collabfund.substack.com/feed"
+    },
+    {
+      "name": "Lenny's Newsletter (Product & Growth)",
+      "url": "https://www.lennysnewsletter.com/feed"
+    },
+    {
+      "name": "LessWrong (Rationality & AI)",
+      "url": "https://www.lesswrong.com/feed.xml"
+    },
+    {
+      "name": "OpenAI Research",
+      "url": "https://openai.com/blog/rss.xml"
+    },
+    {
+      "name": "Stratechery by Ben Thompson",
+      "url": "https://stratechery.com/feed/"
     },
     {
       "name": "MIT Technology Review",
       "url": "https://www.technologyreview.com/feed/"
     },
     {
-      "name": "TechCrunch",
-      "url": "https://techcrunch.com/feed/"
+      "name": "James Clear (Atomic Habits)",
+      "url": "https://jamesclear.com/feed"
     },
     {
-      "name": "Stratechery by Ben Thompson",
-      "url": "https://stratechery.com/feed/"
+      "name": "Mark Manson (Psychology/Life)",
+      "url": "https://markmanson.net/feed"
     }
   ]
 }

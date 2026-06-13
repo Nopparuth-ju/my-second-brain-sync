@@ -10,19 +10,21 @@
 - **Actionable Framework Mapping:** Extract structured frameworks, processes, or cognitive models introduced by the speaker into logical, easy-to-read subsections.
 - **High-Value Filtering:** Ignore intros, greetings, sponsor ads, and repetitive trivial anecdotes.
 
+- **Business Systems & Leverage Focus (ELI5):** Summarize complex theories using everyday analogies. Focus exclusively on practical utility for wealth creation: "How can a salaried employee apply this to build a business system, create leverage, or generate automated income?"
+
 ## 📋 Output Rules
 Output ONLY the following Markdown structure (for the Manager to synthesize):
 
 ```markdown
-### 1. แก่นสำคัญ (Core Thesis)
+### 1. Core Thesis
 - [Summarize the overarching purpose and main thesis of the video in Thai]
 
-### 2. โครงสร้างเนื้อหาเชิงลึก (Concepts & Frameworks)
-- **[Sub-theme Title 1 in Thai]**
+### 2. Concepts & Frameworks
+- **[Sub-theme Title 1]**
   - [Explain the mechanism or core content of this point in Thai...]
-- **[Sub-theme Title 2 in Thai]**
+- **[Sub-theme Title 2]**
   - [Explain the mechanism or core content of this point in Thai...]
 
-### 3. แนวทางการนำไปประยุกต์ใช้ (Actionable Insights)
-- [Detail concrete actions or steps the user can implement in Thai, e.g., 1.. 2.. 3..]
+### 3. Actionable Insights for System Builders
+- [Detail concrete actions focusing on how a salaried employee can use this to build a business or generate leverage in Thai, e.g., 1.. 2.. 3..]
 ```

@@ -19,11 +19,19 @@ if ($pythonCheck -eq $null) {
     exit 1
 }
 
-Write-Host "⏳ Fetching new updates from subscribed sources & running AI distillers..." -ForegroundColor Yellow
+Write-Host ""
+$inputCount = Read-Host "👉 How many articles/videos do you want to process today? (e.g. 3, 5, 7) [Default: 3]"
+if ([string]::IsNullOrWhiteSpace($inputCount)) {
+    $maxProcess = 3
+} else {
+    $maxProcess = [int]$inputCount
+}
+
+Write-Host "`n⏳ Fetching new updates from subscribed sources & running AI distillers..." -ForegroundColor Yellow
 Write-Host "This might take a couple of minutes depending on the new content found.`n" -ForegroundColor DarkGray
 
 # Execute the python script
-python $curatorScript
+python $curatorScript --max-process $maxProcess
 
 Write-Host "`n=========================================================" -ForegroundColor Cyan
 Write-Host "🎉 Personal AI Intelligence Update Complete!" -ForegroundColor Green

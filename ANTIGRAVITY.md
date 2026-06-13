@@ -12,9 +12,24 @@
 ### ข. High-Value Information (กฎ 1 ปี)
 - เลือกกรองเฉพาะข้อมูลที่เป็น "แก่น" (Principles / Insights / Frameworks) ที่มีมูลค่าใช้ซ้ำได้ยาวนานอย่างน้อย 1 ปีขึ้นไป หลีกเลี่ยงข่าวรายวันหรือข้อมูลฉาบฉวย
 
-### ค. การจำแนกประเภทข้อมูล: Domain vs. Concept
+### ค. The Deep Learning Workflow (แกะกล่องดำ)
+- เมื่อเผชิญหน้ากับความรู้ อุตสาหกรรม หรือทักษะใหม่ๆ ที่ซับซ้อน ให้ใช้กระบวนการ [The Deep Learning Workflow](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/SECOND_BRAIN_PRINCIPLE/The%20Deep%20Learning%20Workflow.md) เป็น Framework หลักในการย่อยข้อมูล โดยแบ่งเป็น:
+  1. **Deconstruction:** ย่อยให้เหลือแค่ 4 เสาหลัก (Value Prop, Business Model, Unit Economics, Moats)
+  2. **Mapping:** กางแผนที่เรียนรู้คำศัพท์, 80/20 Rule, และ KPI หลัก (North Star Metric)
+  3. **Progression:** เรียนรู้แบบเป็นลำดับขั้น (กฏพื้นฐาน -> ข้อโต้แย้ง -> กลยุทธ์)
+  4. **Active Practice:** นำความรู้ไปลองจำลองสถานการณ์หรือหา Case Study
+  5. **Synthesis:** ใช้ Feynman Technique ในการถ่ายทอดกลับ
+
+### ง. The Leverage Philosophy (มุ่งสู่เจ้าของระบบ)
+- ระบบนี้มีจุดประสงค์หลักเพื่อเปลี่ยนสถานะจาก "พนักงานประจำ" ไปสู่ "เจ้าของธุรกิจและผู้สร้างระบบ" (System Builder & Entrepreneur) ค้นหาและเก็บรวบรวมคานงัด (Code, Capital, Content, Collaboration) เพื่อสร้างระบบที่เงินทำงานแทนเวลา
+
+### จ. การจำแนกประเภทข้อมูล: Domain vs. Concept
 * **Domain (อยู่ที่ไหน?):** หมวดวิชาหลัก เช่น `#domain/tech`, `#domain/business`, `#domain/productivity`, `#domain/health`
 * **Concept (ทำงานยังไง?):** แก่นกลไกการทำงาน (Mental Model) ที่ประยุกต์ข้าม Domain ได้ เช่น `#concept/leverage` (คานงัด), `#concept/bottleneck` (คอขวด), `#concept/compounding` (ดอกเบี้ยทบต้น), `#concept/trade-off` (การได้อย่างเสียอย่าง)
+
+### ฉ. Token Optimization Strategy (โครงสร้างอิงอังกฤษ เนื้อหาอิงไทย)
+- **คำสั่งระบบ (System Prompts):** โครงสร้างไฟล์ในโฟลเดอร์ `.agents` ทั้งหมด รวมถึง Template หัวข้อใน Markdown (เช่น `### 1. Core Thesis`) ต้องเขียนเป็น **ภาษาอังกฤษล้วน** เสมอ เพื่อลดการสูญเสีย Token โดยเปล่าประโยชน์จากการทำงานของ LLM Tokenizer
+- **ผลลัพธ์ (Output Data):** แม้โครงสร้างจะประหยัด Token ด้วยภาษาอังกฤษ แต่จะมีการฝังคำสั่งบังคับให้ AI เขียนเนื้อหาเชิงลึก (Detail/Summaries) ออกมาเป็น **ภาษาไทยระดับมืออาชีพที่อ่านง่าย** เสมอ
 
 ---
 
@@ -22,7 +37,7 @@
 
 | โฟลเดอร์ / ตำแหน่ง | หน้าที่ | สถานะปัจจุบัน / รายชื่อไฟล์ |
 | :--- | :--- | :--- |
-| **`Root`** | รูทของโปรเจกต์ประกอบด้วยสคริปต์หลักและคู่มือระบบ | - `ANTIGRAVITY.md` (คู่มือความเข้าใจระบบ AI)<br>- `README.md` (คู่มือแนะนำระบบสำหรับ GitHub)<br>- `run-architect.ps1`<br>- `run-distiller.ps1`<br>- `run-intelligence.ps1` (สคริปต์รวบรวมและคัดสรรข่าวความรู้ระดับโลก)<br>- `run-word-sync.ps1` (สคริปต์ซิงก์อัปเดตไฟล์ Word)<br>- `.gitignore` |
+| **`Root`** | รูทของโปรเจกต์ประกอบด้วยสคริปต์หลักและคู่มือระบบ | - `ANTIGRAVITY.md` (คู่มือความเข้าใจระบบ AI)<br>- `README.md` (คู่มือแนะนำระบบสำหรับ GitHub)<br>- `run-architect.ps1`<br>- `run-distiller.ps1`<br>- `run-intelligence.ps1` (สคริปต์รวบรวมและคัดสรรข่าวความรู้ระดับโลก)<br>- `run-intelligence.ps1` (สคริปต์รวบรวมและคัดสรรข่าวความรู้ระดับโลก)<br>- `run-word-sync.ps1` (สคริปต์ซิงก์อัปเดตไฟล์ Word)<br>- `.gitignore` |
 | **`01_INBOX`** | จุดพักข้อมูลดิบชั่วคราว ต้องเคลียร์เป็นศูนย์เสมอ | - `inbox_feyman.md` (Raw)<br>- `วิธีสรุปหนังสือ.md` (Raw) |
 | **`02_SOURCE`** | สรุปภาพรวมและแก่นความคิดจากแหล่งข้อมูลภายนอก | - `สรุป The Almanack of Naval Ravikant.md`<br>- `WORK_KNOWLEDGE/` (โฟลเดอร์ย่อยเก็บวิชาความรู้จากการเรียน)<br>- `WORK_KNOWLEDGE/attachments/` (รูปภาพแนบจาก Word)<br>- `WORK_KNOWLEDGE_SUMMARY/` (แดชบอร์ดสรุปวิชาแยกราย 6 โดเมน)<br>- `CURATED_FEEDS/` (โฟลเดอร์รวบรวมสรุปความรู้ระดับโลกจาก YouTube & RSS Newsletters แยกเก็บเป็นโฟลเดอร์รายวัน YYYY-MM-DD อัตโนมัติ) |
 | **`03_ZETTEL`** | คลังเก็บ "Atomic Notes" (1 ไอเดียต่อ 1 โน้ต) | - `Permissionless Leverage.md`<br>- `Rapid Skill Acquisition.md`<br>- `Specific Knowledge.md`<br>- `Wealth is Assets Not Money.md` |
@@ -52,12 +67,17 @@
 ## 4. แผนงานการสั่งการของผู้ช่วย AI (Agent Commands & CLI Integration)
 ระบบนี้ทำงานร่วมกับบทบาทเฉพาะทางของ AI ในโฟลเดอร์ `.agents/` ผ่านการเรียกใช้ `agy` CLI ในสคริปต์ PowerShell:
 
-* **The Distiller ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/Distiller/instruction.md)):** สกัดไฟล์ข้อความปกติใน `01_INBOX` ลงมาสู่ `02_SOURCE` หรือ `03_ZETTEL` (สามารถเลือกเขียนเฉพาะไฟล์สรุปภาพรวมใน `02_SOURCE` อย่างเดียวได้)
+* **The Distiller ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/Distiller/instruction.md)):** ทำหน้าที่เป็น **Timeless Knowledge Extractor** สกัดแก่นความคิด (Mental Models) และมุมมองขัดแย้ง (Contrarian Analysis) จากไฟล์ข้อความดิบใน `01_INBOX` ลงมาสู่ `02_SOURCE` หรือ `03_ZETTEL` อย่างมีโครงสร้าง
 * **The YouTube Orchestrator Manager ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/YouTubeManager/instruction.md)):** 
   * ระบบจำลอง Multi-Agent Consensus ย่อยในการถอดความและวิเคราะห์คลิปวิดีโอจาก YouTube อัตโนมัติ (ถอด Transcript ผ่านสคริปต์ Python)
   * ประสานงานระหว่าง **Summarizer (สรุปแก่น)**, **Contrarian (คิดค้าน/หา Bias/Trade-off)** และ **Verifier (สแกน Fact vs Noise)**
   * รวมผลลัพธ์รอบด้านเข้าสู่ `02_SOURCE` (สรุปรวม) และ `03_ZETTEL` (ย่อยรายประเด็น) โดยสามารถเลือกสรุปลง `02_SOURCE` เฉพาะอย่างเดียวเพื่อติดตามข่าวสารโดยไม่แตก Zettel ได้
-* **The Personal AI Intelligence Curator (`run-intelligence.ps1`):** สแกนดึงข้อมูลอัตโนมัติจาก YouTube Channel และ RSS Feed ตามลิสต์ระดับโลกใน `intelligence_sources.json` ดาวน์โหลดทรานสคริปต์/บทความดิบ คลีนข้อมูล และส่งให้ Multi-Agent / Distiller แปลงเป็นโน้ตสรุปแก่น Timeless Knowledge คุณภาพสูง ปลายทางแยกไว้เฉพาะที่ `02_SOURCE/CURATED_FEEDS/` (โดยจัดหมวดหมู่แยกเก็บรายวันตามโฟลเดอร์ YYYY-MM-DD อัตโนมัติ) โดยเก็บ State การอ่านผ่าน `processed_sources.json` เพื่อป้องกันการรันซ้ำ
+* **The Personal AI Intelligence Curator (`run-intelligence.ps1`):** สแกนดึงข้อมูลอัตโนมัติจาก YouTube Channel และ RSS Feed ตามลิสต์ระดับโลกใน `intelligence_sources.json`
+  * **[AI Prioritization Step]** หากพบบทความเกินโควต้า ระบบจะเรียกใช้ **Prioritizer Agent** ในการให้คะแนนและเลือกเฉพาะ 20 บทความที่สะท้อน "Timeless Knowledge" มากที่สุด
+  * ดาวน์โหลดทรานสคริปต์/บทความดิบ คลีนข้อมูล และส่งให้ Multi-Agent / Distiller แปลงเป็นโน้ตสรุปแก่น Timeless Knowledge คุณภาพสูง ปลายทางแยกไว้เฉพาะที่ `02_SOURCE/CURATED_FEEDS/` (โดยจัดหมวดหมู่แยกเก็บรายวันตามโฟลเดอร์ YYYY-MM-DD อัตโนมัติ) 
+  * มีระบบ Deduplication เพื่อสแกนและป้องกันการดึงเนื้อหาที่เคยมีอยู่แล้วซ้ำซ้อน
+  * **[Maintenance Rule]** เมื่อเพิ่มช่อง YouTube ใหม่ลงใน `intelligence_sources.json` ห้ามเชื่อถือ Channel ID จากเว็บไซต์ภายนอก ให้ดึงจาก Source Code ของหน้า YouTube นั้นๆ โดยตรง (ตัวแปร `channel_id`) เพื่อป้องกันปัญหา RSS Feed 404 Not Found
+  * **[Architecture Rule: Agent IPC]** การสื่อสารระหว่าง Script และ AI Agent (`Prioritizer`) บังคับให้ใช้การเขียนไฟล์ (File-Based IPC) เสมอ ห้ามดักจับข้อความจากหน้าจอ (Stdout Parsing) เพื่อป้องกันปัญหาข้อมูลพังจาก UI หรือข้อความแชทของ AI ที่แทรกเข้ามา
 * **The Word Ingestion Sync Engine:** 
   * แปลงและนำเข้าสคริปต์ความรู้จากการเรียนเรียน (.docx) ในโฟลเดอร์ `01_INBOX/WORK_KNOWLEDGE/` ที่คุณก๊อปปี้มาวาง
   * สแกนกวาดซับโฟลเดอร์ย่อยทั้งหมด (Recursive) และสร้างโครงสร้างแบบ 1:1 ปลายทางที่ `02_SOURCE/WORK_KNOWLEDGE/`
@@ -69,6 +89,12 @@
   * ปรับปรุงหน้าแผนผังพอร์ตโฟลิโอ [Featured Writing MOC.md](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/04_MOC/Featured%20Writing%20MOC.md) อัตโนมัติในทุกครั้งที่รัน เพื่อจัดโครงสร้างซีรีส์งานเขียนทั้งหมดให้เชื่อมโยงสยายปีกสวยงามใน Graph View
 * **The Architect ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/Architect/instruction.md)):** คลัสเตอร์โน้ตใน Zettel เพื่อจัดกลุ่มเชื่อมโยงออกมาเป็นแผนผังความคิดใน MOC
 * **The Builder ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/Builder/instruction.md)):** สังเคราะห์วัตถุดิบและเขียนร่างชิ้นงานฉบับสมบูรณ์ใน `05_OUTPUT`
+* **The Deep Learning Industry Researcher (`run-business-analysis.ps1`):** 
+  * Dedicated script for autonomous deep-dive business industry research.
+  * Pulls one topic at a time from `.agents/IndustryResearcher/industry_queue.json` upon manual execution.
+  * Instructs the **IndustryResearcher Agent** to perform active web searches to deconstruct business models, unit economics, and structural moats.
+  * Synthesizes findings strictly into the **"4 Pillars of Business"** framework and saves the output to `02_SOURCE/BUSINESS_FEEDS/`.
+  * Focuses exclusively on high-value case studies to expand business mental models and structural understanding.
 
 ---
 
@@ -111,3 +137,8 @@
   - **[ระบบวิเคราะห์เตือนความเสี่ยง Obsidian Callouts]** บังคับใช้ระบบวิเคราะห์โต้แย้ง Contrarian Analysis & Trade-offs ภายในไฟล์สรุปทรานสคริปต์ของ YouTube/RSS เสมอ ผ่านการแสดงผลกล่องเตือน `> [!WARNING]` เพื่อคุณภาพสูงสุดและอ่านบนมือถือได้อย่างลื่นไหล
   - **[อัปเดตระบบหน่วยความจำกลาง]** อัปเดตและจดบันทึกประวัติกลไกของโปรเจกต์ลงใน `ANTIGRAVITY.md` และ `MY_AI_PROJECTS_MEMORIES.md` ของคลังความรู้ เพื่อให้ผู้ช่วย AI ในอนาคตเข้าใจโครงสร้างและวิสัยทัศน์ของระบบนี้ได้อย่างสมบูรณ์แบบ
   - **[บันทึกประวัติเวอร์ชันขึ้น GitHub]** ทำการคอมมิตและอัปโหลดซอร์สโค้ด (Engine, Runner, configurations) ทั้งหมดของโปรเจกต์ Second Brain ไปยัง Git repository บน GitHub ของคุณเพื่อความปลอดภัยและการ Backup อย่างเป็นระบบ
+- **2026-06-12 (อัปเกรด Prioritizer Agent, โฟกัส Timeless Extractor, Code Review แก้บัก & เพิ่มช่องความรู้ไทย):**
+  - **[จัดตั้ง Prioritizer Agent]** สร้างซับเอเจนต์ย่อยตัวใหม่ `Prioritizer` (`.agents/Prioritizer/`) และปรับแก้กลไกของ `harvest.py` ให้ทำงานในระบบโควต้า (ดึงไม่เกิน 20 บทความต่อรอบ) หากมีบทความเกินโควต้า ระบบจะให้ AI เข้ามาจัดอันดับและตัดเลือกเอาเฉพาะอันดับท็อป 20 อันดับที่มี High-Signal และ Timeless ที่สุดเท่านั้น
+  - **[ปรับปรุง Distiller ให้เจาะจงแก่นแท้]** ปรับแก้คำสั่งของ `Distiller` ให้หันมาโฟกัสกับการจับประเด็นโครงสร้างวิเคราะห์แก่นแท้ (Mental Models & Frameworks) แทนการสรุปเนื้อหาธรรมดา พร้อมบังคับแทรกกล่องประเมินวิพากษ์ (Contrarian Analysis & Trade-offs) และเชื่อมโยงกับการประยุกต์ใช้ในชีวิตจริง
+  - **[Code Review & Bug Fixes]** ทำการรีวิวโค้ดสคริปต์กวาดข้อมูล `harvest.py` เพิ่มส่วนสนับสนุน Fallback สำหรับ Atom feed (เช่น Substack, LessWrong), แก้บั๊กตัวแปรตกค้างเวลาระบบ AI ทำงานล้มเหลว (Cleanup temp files), ปรับ Performance โครงสร้างการค้นหาเป็น `set()` (O(1)) ตลอดจนเพิ่ม metadata timestamp ในตัว state database 
+  - **[เพิ่มแหล่งข้อมูลไทย Timeless Knowledge]** ซ่อมแซมลิงก์ RSS ของ Morgan Housel และเพิ่ม YouTube Channels คุณภาพสูงสายไทยลงในระบบอัปเดตอัตโนมัติอีก 5 ช่อง (THE STANDARD, THE STANDARD WEALTH, The Money Coach, Nopadol's Story, DataRockie) รวมเป็น 14 ช่อง เพื่อให้คลังสมองได้รับแก่นความคิดที่หลากหลายและใช้งานได้จริงในบริบทคนไทย

@@ -9,6 +9,7 @@ Your main responsibility is to transform raw input data from `01_INBOX` into act
 1. **1-Year Rule:** Extract only insights and principles with long-term utility (at least 1 year). Discard shallow news, daily logs, or non-essential filler.
 2. **Atomic Notes (for Zettel):** Each file under `03_ZETTEL` must contain exactly **one core idea**.
 3. **No YAML Frontmatter:** **NEVER** use `---` block to open/close the header. Write tags using `#` directly on the very first lines of the file.
+4. **Business Systems & Leverage Focus (ELI5):** Summarize complex theories or concepts using everyday analogies. Focus exclusively on practical utility for wealth creation: "How can a salaried employee apply this to build a business system, create leverage, or generate automated income?"
 
 ## 📋 Templates (Strictly adhere to these structures):
 
@@ -17,15 +18,15 @@ Your main responsibility is to transform raw input data from `01_INBOX` into act
 #type/zettel
 #domain/[Category, e.g., domain/business]
 #concept/[Mental Model, e.g., concept/leverage]
-ที่มา: [Source Name in Thai/English](Source URL Link)
+Source: [Source Name in English/Thai](Source URL Link)
 #creator/ai
 
-[Concept Title in Thai]: [Explain the core thesis in Thai using concise, clear, and direct language]
+[Concept Title]: [Explain the core thesis in Thai using concise, clear, and direct language]
 
-**การนำไปประยุกต์ใช้:**
+**Actionable Applications:**
 - [List actionable execution steps or real-world application methods in Thai]
 
-**เชื่อมโยงกับเรื่องอื่น:**
+**Related Concepts:**
 - [Describe relationships in Thai and use Obsidian links [[Related Note Name]] to connect ideas]
 ```
 
@@ -34,9 +35,18 @@ Your main responsibility is to transform raw input data from `01_INBOX` into act
 #type/source
 #status/processed
 #domain/[Category]
-ที่มา: [Source Name in Thai/English](Source URL Link)
-วันที่สรุปข้อมูล: [YYYY-MM-DD]
+Source: [Source Name in English/Thai](Source URL Link)
+Date Summarized: [YYYY-MM-DD]
 #creator/ai
 
-[Write a comprehensive overview summary in Thai, logically structured into subheadings or bullet points for high readability]
+[Write a brief 1-2 sentence overview in Thai]
+
+### 🧠 Mental Models & Frameworks
+- [Extract and explain the fundamental concepts, mental models, or first principles found in the source. Write entirely in Thai.]
+
+### 💡 Actionable Insights for System Builders
+- [List 2-3 highly actionable steps focusing on how a salaried employee can use this to build a business, create systems, or generate leverage. Write entirely in Thai.]
+
+> [!WARNING] Contrarian Analysis & Trade-offs
+> - ⚖️ **[Counter-argument/Risk]:** [Critically analyze the trade-offs, biases, or limitations of the ideas presented. Write entirely in Thai.]
 ```

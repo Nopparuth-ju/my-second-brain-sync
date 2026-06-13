@@ -1,0 +1,24 @@
+system          > 
+system          > ConTeXt  ver: 2026.04.27 13:56 LMTX  fmt: 2026.6.13  int: english/english
+system          > 
+system          > 'cont-new.mkxl' loaded
+open source     > level 1, order 1, name 'C:/Users/Noppa/AppData/Roaming/TinyTeX/texmf-dist/tex/context/base/mkxl/cont-new.mkxl'
+system          > beware: some patches loaded from cont-new.mkxl
+close source    > level 1, order 1, name 'C:/Users/Noppa/AppData/Roaming/TinyTeX/texmf-dist/tex/context/base/mkxl/cont-new.mkxl'
+system          > 'cont-sys.mkxl' loaded
+open source     > level 1, order 2, name 'C:/Users/Noppa/AppData/Roaming/TinyTeX/texmf-dist/tex/context/texlive/cont-sys.mkxl'
+modules         > 'texlive' is loaded
+open source     > level 2, order 3, name 'C:/Users/Noppa/AppData/Roaming/TinyTeX/texmf-dist/tex/context/modules/mkxl/m-texlive.mkxl'
+resolvers       > lua > loading file 'C:/Users/Noppa/AppData/Roaming/TinyTeX/texmf-dist/tex/context/base/mkiv/data-tld.lua' succeeded
+close source    > level 2, order 3, name 'C:/Users/Noppa/AppData/Roaming/TinyTeX/texmf-dist/tex/context/modules/mkxl/m-texlive.mkxl'
+distribution    >
+distribution    > This installation of ConTeXt is *NOT* provided by the ConTeXt Team; see below for details.
+distribution    > Distribution name: TeX Live 2026
+distribution    > Package version:   2026.04.27 13:56 A
+distribution    > Engine version:    LuaMetaTeX 2.11.09 (win64 20260427)
+distribution    > Report issues to:  https://github.com/gucci-on-fleek/context-packaging
+distribution    >
+close source    > level 1, order 3, name 'C:/Users/Noppa/AppData/Roaming/TinyTeX/texmf-dist/tex/context/texlive/cont-sys.mkxl'
+system          > files > jobname './usage', input './usage.tex', result './usage'
+fonts           > latin modern fonts are not preloaded
+languages       > language 'en' is active

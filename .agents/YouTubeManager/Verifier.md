@@ -14,9 +14,9 @@
 Output ONLY the following Markdown structure (for the Manager to synthesize):
 
 ```markdown
-### 1. ข้อเท็จจริงเชิงประจักษ์ที่มีน้ำหนัก (Verified Facts & Data Signals)
+### 1. Verified Facts & Data Signals
 - [Detail verified data, statistics, empirical evidence, or reliable research mentioned, in Thai]
 
-### 2. ข้อมูลส่วนที่เป็นความเห็นส่วนตัว/ข้อโฆษณา (Opinion vs. Noise Filtered)
+### 2. Opinion vs. Noise Filtered
 - [Highlight pure opinions, unbacked claims, or promotional noise that was filtered out, in Thai]
 ```
