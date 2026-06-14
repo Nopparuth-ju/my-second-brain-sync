@@ -1,0 +1,446 @@
+Total items loaded: 181
+
+ID: yt_4L4x67B8N-M
+Title: อย่ามัวแต่เก็บเงินจนไม่มีเวลาใช้ชีวิต #สรุปหนังสือ Die with Zero | Mission To The Moon EP.2689
+Source: Mission To The Moon Media
+Matched EN: []
+Matched TH: ['เงิน', 'เวลา', 'หนังสือ']
+----------------------------------------
+ID: yt_M7tLPeem4N0
+Title: ไม่ว่าคุณจะมีฐานะร่ำรวยมากแค่ไหนหรือจะทำงานประเภทไหน #Missiontothemoon #สรุปหนังสือ #productivity
+Source: Mission To The Moon Media
+Matched EN: []
+Matched TH: ['รวย', 'งาน', 'หนังสือ']
+----------------------------------------
+ID: yt_B3ysNTOTJi8
+Title: วิธีการใช้งานหน้าสมาชิก Thaiebaymaster.com
+Source: 9arm
+Matched EN: []
+Matched TH: ['งาน']
+----------------------------------------
+ID: yt_jikOaczZxTY
+Title: How a Private Chef Startup Went All In on AI Agents
+Source: Y Combinator
+Matched EN: ['agent', 'startup']
+Matched TH: []
+----------------------------------------
+ID: yt_1egwM88T3C0
+Title: How to Give AI Agents Enough Context to Be Useful
+Source: Y Combinator
+Matched EN: ['agent']
+Matched TH: []
+----------------------------------------
+ID: yt_DGD9b8K42lk
+Title: How to Build an Internal AI Agent That Evolves Itself
+Source: Y Combinator
+Matched EN: ['agent']
+Matched TH: []
+----------------------------------------
+ID: yt_RMmEB9ajmdo
+Title: Meet The DevTool Founders Building For AI Agents
+Source: Y Combinator
+Matched EN: ['agent']
+Matched TH: []
+----------------------------------------
+ID: yt__y7siiS-V5A
+Title: From Zapier for Devs to Powering 90% AI Agents
+Source: Y Combinator
+Matched EN: ['agent']
+Matched TH: []
+----------------------------------------
+ID: yt_ZxwYGbCOuDQ
+Title: This Startup Built AI That 80% of Callers Think Is Human
+Source: Y Combinator
+Matched EN: ['startup', 'think']
+Matched TH: []
+----------------------------------------
+ID: yt_00YZWlvAMsQ
+Title: This Startup Is Automating America's Biggest Hospitals
+Source: Y Combinator
+Matched EN: ['startup']
+Matched TH: []
+----------------------------------------
+ID: yt_e1nKgrcHNyM
+Title: 13 มิถุนายน 2569 เวลา 16.26 น. ขบวนพระศพ เจ้าฟ้าพัชรกิติยาภาฯ
+Source: THE STANDARD
+Matched EN: []
+Matched TH: ['เวลา']
+----------------------------------------
+ID: yt_jx-UggqSfAE
+Title: ‘โรงไฟฟ้านิวเคลียร์’ คือคำตอบพลังงานไทยจริงหรือ? | KEY MESSAGES #265
+Source: THE STANDARD
+Matched EN: []
+Matched TH: ['งาน']
+----------------------------------------
+ID: yt_DE5yvBvIPng
+Title: พรรคประชาชนขอลุยไฟ เจาะปม TH-AI Passport สีน้ำเงิน? | END GAME #170
+Source: THE STANDARD
+Matched EN: []
+Matched TH: ['เงิน']
+----------------------------------------
+ID: yt_0Va-GQb6D60
+Title: ธีระชาติ ตอบปมโจมตีนายทุนสีน้ำเงิน แต่ส้มก็มีรูปคู่…
+Source: THE STANDARD
+Matched EN: []
+Matched TH: ['เงิน', 'ทุน']
+----------------------------------------
+ID: yt_W3fgDdDOOeU
+Title: เสียงสะท้อนจากประชาชน ถึงเวลาข้าราชการไทยต้องพึ่ง AI?
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: ['เวลา']
+----------------------------------------
+ID: yt_upbI2jQvbrI
+Title: ตั้งเป้าจะซื้อบ้าน คอนโด ต้องเตรียมตัวอย่างไร l New Gen Investor EP.107
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'invest', 'standard wealth']
+Matched TH: []
+----------------------------------------
+ID: yt_02L7I9jcdAE
+Title: SpaceX สร้างประวัติศาสตร์ IPO ใหญ่สุดตลอดกาล ทะลุ 7.5 หมื่นล้านดอลลาร์ | THE STANDARD WEALTH
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: []
+----------------------------------------
+ID: yt_ISsTiV9dTYA
+Title: 12 มิถุนายน 2569
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: []
+----------------------------------------
+ID: yt_9_ThpH233S0
+Title: ในวันที่โลกกำลังมุ่งหน้าสู่รถยนต์ไฟฟ้า 100% ทำไม Mercedes-Benz ยังให้ความสำคัญกับ PHEV?
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: []
+----------------------------------------
+ID: yt_YLfu2Bd5Jxg
+Title: ‘หุ้นกู้ IRPC 2026’ โชว์จุดแข็งการเงิน สร้างความมั่นใจนักลงทุนสู้ทุกความผันผวน | THE STANDARD WEALTH
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: ['เงิน', 'ลงทุน', 'ทุน']
+----------------------------------------
+ID: yt_h6NgQFSrN_Y
+Title: อินไซด์เวทีฟังความเห็น TH-AI Passport  คุ้มค่าแค่ไหนในสายตาคนไอที | THE STANDARD WEALTH
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: []
+----------------------------------------
+ID: yt_QDteRA2Frfw
+Title: เจาะงบ 1.6 พันล้าน ทำ TH-AI Passport คำถามที่รัฐต้องตอบก่อนแจก AI ฟรี | Morning Wealth 12 มิ.ย. 69
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: []
+----------------------------------------
+ID: yt_sUUY8akCbjo
+Title: ไทยโตการใช้ AI เร็วเป็นอันดับ 2 ของโลก รองจากเกาหลีใต้ แต่ยังมีอีกกว่า 87.6% ที่ยังไม่เริ่มใช้
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: []
+----------------------------------------
+ID: yt_-zt_DVXk5Aw
+Title: ‘ทองคำ’ เข้าสู่ขาลงหรือยัง?
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: []
+----------------------------------------
+ID: yt_VUoNfs197ok
+Title: เงินเฟ้อสหรัฐฯ สูงสุดรอบ 3 ปี กัดกินกำลังซื้ออเมริกัน จับตา Fed ขึ้นดอกเบี้ย | THE STANDARD WEALTH
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: ['เงิน']
+----------------------------------------
+ID: yt_K26_rwLmb4g
+Title: ทองดิ่ง! เข้า ‘ขาลง’ นานแค่ไหน ประเมินทิศทางทองคำช่วงที่เหลือของปี | THE STANDARD WEALTH
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: []
+----------------------------------------
+ID: yt_hblDLOaH-XU
+Title: วิเคราะห์เทรนด์ราคา ‘ทองคำ’ ปรับฐานใหญ่หรือไม่ สวนทางดีมานด์โลกพุ่ง | Morning Wealth 11 มิถุนายน 69
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: []
+----------------------------------------
+ID: yt_5wBmE2nYAvc
+Title: วิเคราะห์เทรนด์ราคา ‘ทองคำ’ ปรับฐานใหญ่หรือไม่ สวนทางดีมานด์โลกพุ่ง | Morning Wealth 11 มิ.ย. 69
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: []
+----------------------------------------
+ID: yt_CTHFBXULU7o
+Title: ถ้า AI ทำงานแทนเด็กจบใหม่ได้เกือบหมด คนรุ่นใหม่ควรสร้างคุณค่าอะไรให้ตัวเอง
+Source: THE STANDARD WEALTH
+Matched EN: ['wealth', 'standard wealth']
+Matched TH: ['งาน']
+----------------------------------------
+ID: yt_unTqAJVuoro
+Title: อยากทำประกันชีวิต เลือกทุนประกันเท่าไหร่ดี ?
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: ['ทุน']
+----------------------------------------
+ID: yt_Aq5vOykQaXE
+Title: ตกงานแต่แบงก์ไม่ช่วย! วิธี "สู้ยิบตา" เจรจาหนี้บ้าน ให้รอด! | มันนีโค้ชพบประชาชน  [9 มิ.ย 69]
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: ['งาน']
+----------------------------------------
+ID: yt_OtG4E9S4XAY
+Title: เกษียณฉบับไรเดอร์… เลี้ยงตัวได้ยามแก่
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: ['เกษียณ']
+----------------------------------------
+ID: yt_LOcSCcfDCjo
+Title: เงินแต๊ะเอีย ต้องยื่นภาษีไหม...
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: ['เงิน']
+----------------------------------------
+ID: yt_jnMOgfaQj3Q
+Title: The Money Deal สัญญาใจก่อนใช้เงินอนาคต
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: ['เงิน']
+----------------------------------------
+ID: yt_rKAvZBIay_Q
+Title: ฝันอยากได้อะไร ต้องมีแผนการ!
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: []
+----------------------------------------
+ID: yt_U6kaR-NL6_I
+Title: รายได้เพิ่ม แต่เงินไม่เหลือ เพราะ Lifestyle Inflation
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: ['เงิน']
+----------------------------------------
+ID: yt_XnTmutblAmM
+Title: วางแผนเกษียณฉบับ LGBTQ+ ไม่มีลูกหลานดูแล ต้องเตรียมตัวอย่างไร?   l The Money Coach Podcast EP.104
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: ['เกษียณ']
+----------------------------------------
+ID: yt_tymlWzFmGds
+Title: Why Big Sales Don’t Mean Big Profit ยอดขายปัง ทำไม ตังค์ไม่เหลือ?
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['profit', 'money']
+Matched TH: []
+----------------------------------------
+ID: yt_PHZ2aK7eeMc
+Title: 📣 อยากมีธุรกิจ ต้องห้ามพลาด! DBD Franchise Pavilion 2026
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: ['ธุรกิจ']
+----------------------------------------
+ID: yt_Kv2DYLVD2WY
+Title: "บทเรียน 3 แสน! ช่วยญาติแก้หนี้ แต่โดนด่าว่าไม่มีน้ำใจ" | มันนีโค้ชพบประชาชน [2 มิ.ย. 69]
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: []
+----------------------------------------
+ID: yt_QHR-VAYRSMs
+Title: ไรเดอร์เงินดี ต้องวางแผนภาษีเก่งด้วย
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: ['เงิน']
+----------------------------------------
+ID: yt_XMwXa-RJ-Ek
+Title: เปลี่ยนทรัพย์สินในมือให้เป็นโอกาส  ด้วยสินเชื่อทรัพย์ค้ำประกัน
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: []
+----------------------------------------
+ID: yt_bfSqQapzdwY
+Title: มือใหม่วางแผนซื้อบ้านหลังแรก ต้องคิดเรื่องอะไรบ้าง?
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: []
+----------------------------------------
+ID: yt_hQx9UPFuE5I
+Title: ระวังตัวกันสักนิด อย่าหลงเชื่อพี่มิจ ผู้ไม่หวังดี
+Source: The Money Coach (การเงิน/ธุรกิจ)
+Matched EN: ['money']
+Matched TH: []
+----------------------------------------
+ID: yt_GvcaUQwleLo
+Title: EP 2900 (WE 324) Book Review The Art of Spending Money ตอนที่ 1
+Source: Nopadol's Story (Productivity/หนังสือ)
+Matched EN: ['money']
+Matched TH: []
+----------------------------------------
+ID: yt_pz5oc_dyJ7U
+Title: EP 2898 8 กับดักที่ทำให้เวลาของเราหายไป
+Source: Nopadol's Story (Productivity/หนังสือ)
+Matched EN: []
+Matched TH: ['เวลา']
+----------------------------------------
+ID: yt_zpCWFhEv_EI
+Title: EP 2893 (WE 323) Book Review ใช้แรงทำเงินให้เงินทำงาน
+Source: Nopadol's Story (Productivity/หนังสือ)
+Matched EN: []
+Matched TH: ['เงิน', 'งาน']
+----------------------------------------
+ID: yt_htHfSHtZo6c
+Title: EP 2891 Cognitive Money สร้างความสุขด้วยปัญญาการรู้คิดเพื่อพัฒนาชีวิตการเงินที่ดี
+Source: Nopadol's Story (Productivity/หนังสือ)
+Matched EN: ['money']
+Matched TH: ['เงิน', 'พัฒนา']
+----------------------------------------
+ID: yt_XtaVj2Fqecg
+Title: EP 2890 เบื้องหลังหนังสือ The Life Lecture
+Source: Nopadol's Story (Productivity/หนังสือ)
+Matched EN: []
+Matched TH: ['หนังสือ']
+----------------------------------------
+ID: yt_TD0yyeK4oK4
+Title: Live - Mini Bootcamp Day 03 Writing to Think
+Source: DataRockie (Data/Tech/AI)
+Matched EN: ['think']
+Matched TH: []
+----------------------------------------
+ID: yt_Wpktv0iUlAo
+Title: The biggest myth in your career path
+Source: Ali Abdaal (Productivity/Life)
+Matched EN: ['career']
+Matched TH: []
+----------------------------------------
+ID: yt_0j3SW7R40SU
+Title: How to Quit Your Job (and Find Work You Actually Love)
+Source: Ali Abdaal (Productivity/Life)
+Matched EN: ['quit']
+Matched TH: []
+----------------------------------------
+ID: yt_XnPkUxg__zk
+Title: 3 ways to financial freedom
+Source: Ali Abdaal (Productivity/Life)
+Matched EN: ['freedom']
+Matched TH: []
+----------------------------------------
+ID: yt_WdH2LsjXZhc
+Title: My 3 creator rules
+Source: Ali Abdaal (Productivity/Life)
+Matched EN: ['creator']
+Matched TH: []
+----------------------------------------
+ID: yt_gMN2utxJAKQ
+Title: The Midlife Career Advantage
+Source: Ali Abdaal (Productivity/Life)
+Matched EN: ['career']
+Matched TH: []
+----------------------------------------
+ID: yt_J82zFDyYck0
+Title: My 1st business: £200 from 4 students
+Source: Ali Abdaal (Productivity/Life)
+Matched EN: ['business']
+Matched TH: []
+----------------------------------------
+ID: yt_L7xvwsg7WA8
+Title: Freedom is your new currency
+Source: Ali Abdaal (Productivity/Life)
+Matched EN: ['freedom']
+Matched TH: []
+----------------------------------------
+ID: yt_0KQOrJ_K6ps
+Title: 'I Love You But I Don’t Think We Should Be Together'
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy', 'think']
+Matched TH: []
+----------------------------------------
+ID: yt_O9INMnsoUxU
+Title: Understanding the Fear of Intimacy
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_BljI_i4_vek
+Title: Can Our Partners Change?
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_CrD_jqgX9e8
+Title: The Joy of Pessimism in Love
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_i83WzFygvZ4
+Title: How to Be More Straightforward
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_KkgFTWvEpOU
+Title: The Perfectionist Trap #psychology #animation #theschooloflife
+Source: The School of Life (Philosophy)
+Matched EN: ['psychology', 'philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_23CZ164ej64
+Title: Love and Self-Love  #psychology #animation #theschooloflife
+Source: The School of Life (Philosophy)
+Matched EN: ['psychology', 'philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_tv6WwOFQIY0
+Title: You Were Let Go Because You Were Too Good
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_KAgEC3HHgo8
+Title: How Wounded People Seek Out Further Punishment
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_yaCVfTQWhE8
+Title: Those Who Are Terrified of Love
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_lsRSqB54XMM
+Title: Why Are People So Nasty?
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_gxojJ0oyDNI
+Title: Why Old Friends Matter
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_KquM_52cAIE
+Title: How to Survive Being Alone
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_1_uw5lY1Xuk
+Title: In Praise of Short-Term Love
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy']
+Matched TH: []
+----------------------------------------
+ID: yt_WQVInDSQm8c
+Title: Why Do You Think Loneliness and Solitude Are So Often Confused
+Source: The School of Life (Philosophy)
+Matched EN: ['philosophy', 'think']
+Matched TH: []
+----------------------------------------
+ID: yt_7EoBX13g0aw
+Title: 3 Easy Money Habits I Swear By
+Source: Thomas Frank (Productivity/Learning)
+Matched EN: ['money']
+Matched TH: []
+----------------------------------------
+ID: yt_XImly72tLw0
+Title: How I Automate My Finances
+Source: Thomas Frank (Productivity/Learning)
+Matched EN: ['automate', 'finance']
+Matched TH: []
+----------------------------------------
