@@ -125,7 +125,15 @@ foreach ($topic in $topics) {
             if (Test-Path $targetFile) {
                 Write-Host "       [v] Saved to: $targetFile" -ForegroundColor Green
             } else {
-                Write-Host "       [x] Failed to create file: $targetFile" -ForegroundColor Red
+                # Fallback: Check if AI saved it with a slightly different name (e.g. dropped the date)
+                $fuzzyMatches = Get-ChildItem -Path $outputDir -Filter "*$safeTopic*.md" -ErrorAction SilentlyContinue
+                if ($null -ne $fuzzyMatches -and $fuzzyMatches.Count -gt 0) {
+                    $fuzzyFile = $fuzzyMatches[0]
+                    Move-Item -Path $fuzzyFile.FullName -Destination $targetFile -Force
+                    Write-Host "       [v] Saved to: $targetFile (Auto-corrected filename from $($fuzzyFile.Name))" -ForegroundColor Green
+                } else {
+                    Write-Host "       [x] Failed to create file: $targetFile" -ForegroundColor Red
+                }
             }
         } else {
             Write-Host "       [x] Agent failed with exit code $($process.ExitCode)" -ForegroundColor Red
