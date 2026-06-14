@@ -39,14 +39,45 @@ if ($selectedCategories.Count -eq 0) {
     exit
 }
 
-$topicsInput = Read-Host "`nEnter the topics/companies to research (comma separated, e.g., 'Apple, Tesla')"
+$topicsInput = Read-Host "`nEnter the topics/companies to research (comma separated, e.g., 'Apple, Tesla', or type 'suggest')"
 
 if ([string]::IsNullOrWhiteSpace($topicsInput)) {
     Write-Host "[x] No topics entered. Exiting." -ForegroundColor Red
     exit
 }
 
-$topics = $topicsInput -split ',' | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" }
+$topics = @()
+if ($topicsInput -match "(?i)^suggest$") {
+    Write-Host "[...] Reading your Business Curriculum to find the next best topic..." -ForegroundColor DarkGray
+    $curriculumFile = "$baseOutputDir\00_Business_Curriculum.md"
+    if (Test-Path $curriculumFile) {
+        $lines = Get-Content $curriculumFile
+        $foundSuggest = $false
+        foreach ($line in $lines) {
+            if ($line -match "^\d+\.\s+\*\*([^*]+)\*\*") {
+                $candidate = $matches[1].Trim()
+                $safeCandidate = $candidate -replace '[\\/*?:"<>|]', '-'
+                $existing = Get-ChildItem -Path $baseOutputDir -Recurse -Filter "*$safeCandidate.md" -ErrorAction SilentlyContinue
+                if ($null -eq $existing -or $existing.Count -eq 0) {
+                    $topics += $candidate
+                    Write-Host "[v] Suggestion selected: $candidate" -ForegroundColor Green
+                    $foundSuggest = $true
+                    break
+                }
+            }
+        }
+        if (-not $foundSuggest) {
+            Write-Host "[x] Could not find any unresearched topics in the curriculum. Please enter manually." -ForegroundColor Red
+            exit
+        }
+    } else {
+        Write-Host "[x] Curriculum file not found at $curriculumFile" -ForegroundColor Red
+        exit
+    }
+} else {
+    $topics = $topicsInput -split ',' | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" }
+}
+
 $today = Get-Date -Format "yyyy-MM-dd"
 
 foreach ($topic in $topics) {
