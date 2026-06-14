@@ -103,15 +103,19 @@ foreach ($topic in $topics) {
             New-Item -ItemType Directory -Force -Path $outputDir | Out-Null 
         }
 
+        $absOutputDir = (Resolve-Path $outputDir).Path
+        $absInstruction = (Resolve-Path "$agentDir\instruction.md").Path
+
         Write-Host "    -> Domain: $categoryFolder" -ForegroundColor DarkGray
         
         $safeTopic = $topic -replace '[\\/*?:"<>|]', '-'
         $targetFile = "$outputDir\$today - $safeTopic.md"
+        $absTargetFile = "$absOutputDir\$today - $safeTopic.md"
 
         $prompt = "You are the $agentName. I need you to deeply research the following topic: `"$topic`". `n"
-        $prompt += "Read .agents/$agentName/instruction.md and follow it strictly. `n"
-        $prompt += "Research the topic thoroughly using your tools, structure it exactly as requested in the instruction, and save the final Markdown report to: `"$targetFile`" `n"
-        $prompt += "Do not just print the report to the terminal. You MUST use your write_to_file tool to save it EXACTLY ONCE."
+        $prompt += "Read your instruction file at `"$absInstruction`" and follow it strictly. `n"
+        $prompt += "Research the topic thoroughly using your tools, structure it exactly as requested in the instruction, and save the final Markdown report to: `"$absTargetFile`" `n"
+        $prompt += "CRITICAL: You MUST use your write_to_file tool to save the report EXACTLY to the absolute path provided (`"$absTargetFile`"). DO NOT change the folder name, do not create new folders. DO NOT just print the report to the terminal."
 
         Write-Host "       [...] Invoking AI Agent..." -ForegroundColor DarkGray
 
