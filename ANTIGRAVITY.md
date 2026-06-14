@@ -95,6 +95,7 @@
   * Dynamically instructs the corresponding Agent (`BusinessModelAnalyst`, `BehavioralAnalyst`, `SystemsAnalyst`, `CultureAnalyst`, `RiskAnalyst`) to perform active web searches and deconstruct the topic using highly specialized frameworks.
   * Synthesizes findings strictly into Timeless Knowledge and saves the output to specific category folders under `02_SOURCE/BUSINESS_FEEDS/`.
   * Focuses exclusively on high-value case studies to expand mental models and structural understanding.
+  * **Recommended Topics (Starter Pack):** `Amazon, Costco, Netflix, Stripe, Hermes, TSMC, Pinduoduo`
 
 ---
 
