@@ -89,12 +89,12 @@
   * ปรับปรุงหน้าแผนผังพอร์ตโฟลิโอ [Featured Writing MOC.md](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/04_MOC/Featured%20Writing%20MOC.md) อัตโนมัติในทุกครั้งที่รัน เพื่อจัดโครงสร้างซีรีส์งานเขียนทั้งหมดให้เชื่อมโยงสยายปีกสวยงามใน Graph View
 * **The Architect ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/Architect/instruction.md)):** คลัสเตอร์โน้ตใน Zettel เพื่อจัดกลุ่มเชื่อมโยงออกมาเป็นแผนผังความคิดใน MOC
 * **The Builder ([instruction](file:///D:/Boss/3%29%20Hobby/3.13%29%20AI/AI%20Agent/Second%20Brain/My%20Second%20Brain%20Sync/.agents/Builder/instruction.md)):** สังเคราะห์วัตถุดิบและเขียนร่างชิ้นงานฉบับสมบูรณ์ใน `05_OUTPUT`
-* **The Deep Learning Industry Researcher (`run-business-analysis.ps1`):** 
-  * Dedicated script for autonomous deep-dive business industry research.
-  * Pulls one topic at a time from `.agents/IndustryResearcher/industry_queue.json` upon manual execution.
-  * Instructs the **IndustryResearcher Agent** to perform active web searches to deconstruct business models, unit economics, and structural moats.
-  * Synthesizes findings strictly into the **"4 Pillars of Business"** framework and saves the output to `02_SOURCE/BUSINESS_FEEDS/`.
-  * Focuses exclusively on high-value case studies to expand business mental models and structural understanding.
+* **The Deep Learning Business Analyst (`run-business.ps1`):** 
+  * Dedicated interactive script for autonomous deep-dive business research across 5 MECE domains.
+  * Provides an interactive prompt to select the domain (Business Models, Behavioral Psychology, Systems Thinking, Culture & Leadership, Risk Management) and input multiple topics.
+  * Dynamically instructs the corresponding Agent (`BusinessModelAnalyst`, `BehavioralAnalyst`, `SystemsAnalyst`, `CultureAnalyst`, `RiskAnalyst`) to perform active web searches and deconstruct the topic using highly specialized frameworks.
+  * Synthesizes findings strictly into Timeless Knowledge and saves the output to specific category folders under `02_SOURCE/BUSINESS_FEEDS/`.
+  * Focuses exclusively on high-value case studies to expand mental models and structural understanding.
 
 ---
 
@@ -142,3 +142,9 @@
   - **[ปรับปรุง Distiller ให้เจาะจงแก่นแท้]** ปรับแก้คำสั่งของ `Distiller` ให้หันมาโฟกัสกับการจับประเด็นโครงสร้างวิเคราะห์แก่นแท้ (Mental Models & Frameworks) แทนการสรุปเนื้อหาธรรมดา พร้อมบังคับแทรกกล่องประเมินวิพากษ์ (Contrarian Analysis & Trade-offs) และเชื่อมโยงกับการประยุกต์ใช้ในชีวิตจริง
   - **[Code Review & Bug Fixes]** ทำการรีวิวโค้ดสคริปต์กวาดข้อมูล `harvest.py` เพิ่มส่วนสนับสนุน Fallback สำหรับ Atom feed (เช่น Substack, LessWrong), แก้บั๊กตัวแปรตกค้างเวลาระบบ AI ทำงานล้มเหลว (Cleanup temp files), ปรับ Performance โครงสร้างการค้นหาเป็น `set()` (O(1)) ตลอดจนเพิ่ม metadata timestamp ในตัว state database 
   - **[เพิ่มแหล่งข้อมูลไทย Timeless Knowledge]** ซ่อมแซมลิงก์ RSS ของ Morgan Housel และเพิ่ม YouTube Channels คุณภาพสูงสายไทยลงในระบบอัปเดตอัตโนมัติอีก 5 ช่อง (THE STANDARD, THE STANDARD WEALTH, The Money Coach, Nopadol's Story, DataRockie) รวมเป็น 14 ช่อง เพื่อให้คลังสมองได้รับแก่นความคิดที่หลากหลายและใช้งานได้จริงในบริบทคนไทย
+- **2026-06-14 (ยกเครื่องระบบวิเคราะห์ธุรกิจเป็น 5 แกน (MECE Architecture) & ระบบ Interactive Prompt):**
+  - **[สถาปัตยกรรม MECE 5 แกน]** ถอดถอน IndustryResearcher ตัวเก่าออกและสร้าง Agent วิจัยเชิงลึก 5 ตัวที่แยกตามหมวดหมู่ MECE ไม่ทับซ้อนกัน ได้แก่: `BusinessModelAnalyst`, `BehavioralAnalyst`, `SystemsAnalyst`, `CultureAnalyst`, `RiskAnalyst` เพื่อโฟกัสเนื้อหาเฉพาะทางอย่างเฉียบคม
+  - **[ระบบ Interactive Runner]** อัปเกรดสคริปต์เก่าเป็น `run-business.ps1` แบบตอบโต้สด (Interactive) ผู้ใช้สามารถเลือกหมวดหมู่และพิมพ์ชื่อ Topic ได้หลายเรื่องพร้อมกัน (ไม่ต้องแก้ไฟล์ JSON Queue อีกต่อไป)
+  - **[Token Optimization]** กำหนดโครงสร้างคำสั่ง Prompt ของ Agent 5 ตัวใหม่ทั้งหมดเป็นภาษาอังกฤษ 100% แต่บังคับให้ตอบผลลัพธ์การวิเคราะห์ที่ซับซ้อนออกมาเป็นภาษาไทย
+  - **[หมวดหมู่โฟลเดอร์ปลายทาง]** จัดระเบียบผลลัพธ์แยกตามโฟลเดอร์ย่อย 5 สาขา ภายใต้ `02_SOURCE/BUSINESS_FEEDS/` โดยอัตโนมัติ
+
